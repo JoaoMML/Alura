@@ -30,8 +30,8 @@ namespace Baskara
             MessageBox.Show("O resultado da primira raiz é: " + r1);
             MessageBox.Show("O resultado da segunda raiz é : " + r2);
 
-
-
+            // sucesso
+            MessageBox.Show("DEU CERTOOOO ! ");
 
 
         }
