@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Fibonacci
+namespace DesafioForEncadeados
 {
     public partial class Form1 : Form
     {
@@ -19,17 +19,17 @@ namespace Fibonacci
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string serie = "";
-            int anterior = 0;
-            int atual = 1;
-            while (atual <= 100)
+            int qtdLinhas = 5;
+            string triangulo = "";
+            for (int linha = 1; linha <= qtdLinhas; linha++)
             {
-                serie += atual + "        ";
-                int proximo = anterior + atual;
-                anterior = atual;
-                atual = proximo;
+                for (int coluna = 1; coluna <= linha; coluna++)
+                {
+                    triangulo += (linha * coluna) + " ";
+                }
+                triangulo += "\n";
             }
-            MessageBox.Show("A série de Fibonacci até 100: " + serie);
+            MessageBox.Show(triangulo);
         }
     }
 }
