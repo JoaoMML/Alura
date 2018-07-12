@@ -22,8 +22,16 @@ namespace CaixaEletronico
             int numeroDaConta = 1;
             double saldo = 100.0;
             double valor = 10.0;
-            double saldoAposSaque = saldo - valor;
-            MessageBox.Show("O saldo atual é de: " + saldoAposSaque);
+            bool podeSacar = (valor <= saldo) && (valor >= 0);
+           
+            if (podeSacar){
+                saldo -= valor;
+                MessageBox.Show("Saque Realizado com sucesso");
+            }
+            else
+            {
+                MessageBox.Show("Saldo insuficiente");
+            }
         }
     } 
 }
