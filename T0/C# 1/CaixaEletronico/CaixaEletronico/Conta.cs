@@ -9,10 +9,10 @@ namespace CaixaEletronico
     class Conta
     {
         public int numero;
-        public string titular;
         public double saldo;
-        public string cpf;
+        public string titular;
         public int agencia;
+        public Cliente cliente;
 
         public void Deposita(double valorASerDepositado)
         {
