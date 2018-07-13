@@ -19,19 +19,17 @@ namespace CaixaEletronico
 
         private void button1_Click(object sender, EventArgs e)
         {
-            int numeroDaConta = 1;
-            double saldo = 100.0;
-            double valor = 10.0;
-            bool podeSacar = (valor <= saldo) && (valor >= 0);
-           
-            if (podeSacar){
-                saldo -= valor;
-                MessageBox.Show("Saque Realizado com sucesso");
-            }
-            else
-            {
-                MessageBox.Show("Saldo insuficiente");
-            }
+            Conta umaConta = new Conta();
+            umaConta.numero = 1;
+            umaConta.titular = "João Marcos";
+            umaConta.saldo = 300000.0;
+
+            Conta outraConta = new Conta();
+            outraConta.numero = 2;
+            outraConta.titular = " Gabriel Lima";
+            outraConta.saldo = 25.0;
+            MessageBox.Show("O titular da conta 1 é: " + umaConta.titular);
+            MessageBox.Show("O saldo dele é de:" + umaConta.saldo);
         }
     } 
 }
