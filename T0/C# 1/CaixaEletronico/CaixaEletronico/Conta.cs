@@ -11,8 +11,29 @@ namespace CaixaEletronico
         public int numero;
         public string titular;
         public double saldo;
+        public string cpf;
         public int agencia;
-        public long Cpf;
 
+        public void Deposita(double valorASerDepositado)
+        {
+            if (valorASerDepositado > 0)
+            {
+                this.saldo += valorASerDepositado;
+            }
+        }
+
+        public void Saca(double valorASerSacado)
+        {
+            if (valorASerSacado <= this.saldo && valorASerSacado > 0)
+            {
+                this.saldo -= valorASerSacado;
+            }
+        }
+
+        public void Transfere(double valor, Conta destino)
+        {
+            this.Saca(valor);
+            destino.Deposita(valor);
+        }
     }
 }
