@@ -20,14 +20,13 @@ namespace CaixaEletronico
         private void button1_Click(object sender, EventArgs e)
         {
             Conta conta = new Conta();
-            Cliente cliente = new Cliente();
+            Cliente cliente = new Cliente ("Professor Danton");
             conta.cliente = cliente;
-            cliente.nome = "Professor Danton";
             conta.cliente.idade = 30;
             conta.cliente.rg = "13456789-5";
             conta.cliente.cpf = "465879609";
             conta.cliente.endereco = " Rua Benner Sistemas 2018";
-            conta.saldo = 10000.00;
+            //conta.saldo = 10000.00;
             float vl = 1000;
             bool sacou = conta.Saca(vl);
             if (sacou)
