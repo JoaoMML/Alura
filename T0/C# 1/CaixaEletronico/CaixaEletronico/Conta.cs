@@ -8,11 +8,11 @@ namespace CaixaEletronico
 {
     class Conta
     {
-        public int numero;
-        public double saldo;
-        public Cliente titular;
-        public int agencia;
-        public Cliente cliente;
+        public int numero { get; set; }
+        public double saldo { get; private set; }
+        public Cliente titular { get; set; }
+        public int agencia { get; set; }
+        public Cliente cliente { get; set; }
 
         public void Deposita(double valorASerDepositado)
         {
