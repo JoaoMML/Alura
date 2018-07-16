@@ -35,6 +35,16 @@ namespace CaixaEletronico
 
 
             MessageBox.Show(" -> Cliente : " + cliente.nome + "\n -> RG:   " + cliente.rg + "\n -> CPF : " + cliente.cpf + "\n -> End: " + cliente.endereco + "\n -> Saldo atual : " + conta.saldo);
+}
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            Conta conta = new Conta();
+            Cliente cliente = new Cliente();
+            conta.titular = cliente;
+            conta.titular.nome = "Guilherme";
+            textoTitular.Text = conta.titular.nome;
+
         }
     }
 }
