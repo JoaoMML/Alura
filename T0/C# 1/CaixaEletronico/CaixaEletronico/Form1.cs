@@ -26,7 +26,7 @@ namespace CaixaEletronico
             conta.cliente.rg = "13456789-5";
             conta.cliente.cpf = "465879609";
             conta.cliente.endereco = " Rua Benner Sistemas 2018";
-            conta.saldo = 100000.50;
+            conta.saldo = 15789.50;
 
             MessageBox.Show(" -> Cliente : " + cliente.nome + "\n -> RG:   " + cliente.rg + "\n -> CPF : " + cliente.cpf + "\n -> End: " + cliente.endereco + "\n -> Saldo atual : " + conta.saldo);
         }
