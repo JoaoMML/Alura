@@ -10,7 +10,7 @@ namespace CaixaEletronico
     {
         public int numero;
         public double saldo;
-        public string titular;
+        public Cliente titular;
         public int agencia;
         public Cliente cliente;
 
@@ -22,14 +22,33 @@ namespace CaixaEletronico
             }
         }
 
-        public void Saca(double valorASerSacado)
+        public bool Saca(double valorASerSacado)
         {
-            if (valorASerSacado <= this.saldo && valorASerSacado > 0)
+            if (valorASerSacado > this.saldo || valorASerSacado < 0)
             {
-                this.saldo -= valorASerSacado;
+                return false;
+            }
+            else
+            {
+                if (this.cliente.EhMaiorDeIdade())
+                {
+                    this.saldo -= valorASerSacado;
+                    return true;
+                }
+                else
+                {
+                    if (valorASerSacado <= 200.0)
+                    {
+                        this.saldo -= valorASerSacado;
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
             }
         }
-
         public void Transfere(double valor, Conta destino)
         {
             this.Saca(valor);
