@@ -16,9 +16,9 @@ namespace CaixaEletronico
 
         private void MostrarConta()
         {
-            textN.Text = Convert.ToString(this.conta.numero);
-            textSaldo.Text = Convert.ToString("R$"+this.conta.saldo);
-            textoTitular.Text = this.conta.titular.nome;
+            textN.Text = Convert.ToString(this.conta.Numero);
+            textSaldo.Text = Convert.ToString("R$" + this.conta.Saldo);
+            textoTitular.Text = this.conta.Titular.Nome;
         }
         public Form1()
         {
@@ -28,7 +28,7 @@ namespace CaixaEletronico
         private void button1_Click(object sender, EventArgs e)
         {
             Conta conta = new Conta();
-            Cliente cliente = new Cliente("Professor Danton") { rg = "13456789-5", cpf = "465879609", idade = 30, endereco = " Rua Benner Sistemas 2018" };
+            Cliente cliente = new Cliente("Professor Danton") { Rg = "13456789-5", Cpf = "465879609", Idade = 30, Endereco = " Rua Benner Sistemas 2018" };
             //conta.saldo = 10000.00; 
             float vl = 1000;
             bool sacou = conta.Saca(vl);
@@ -36,27 +36,29 @@ namespace CaixaEletronico
             {
                 MessageBox.Show(" Saque de  R$" + vl + " realizado com sucesso");
             }
+
+
             else
             {
                 MessageBox.Show("Não foi possível sacar");
             }
 
 
-            MessageBox.Show(" -> Cliente : " + cliente.nome + "\n -> RG:   " + cliente.rg + "\n -> CPF : " + cliente.cpf + "\n -> End: " + cliente.endereco + "\n -> Saldo atual : " + conta.saldo);
+            //  MessageBox.Show(" -> Cliente : " + cliente.nome + "\n -> RG:   " + cliente.rg + "\n -> CPF : " + cliente.cpf + "\n -> End: " + cliente.endereco + "\n -> Saldo atual : " + conta.saldo);
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             this.conta = new Conta();
-            Cliente cliente = new Cliente("Victor");
-            this.conta.titular = cliente;
-            this.conta.titular.nome = cliente.nome;
-            this.conta.Deposita(250.0);
-            this.conta.numero = 1;
-
-            textoTitular.Text = conta.titular.nome;
-            textN.Text = Convert.ToString(conta.numero);
-            textSaldo.Text = Convert.ToString("R$ " + conta.saldo);
+            Cliente cliente = new Cliente("Victor") { Idade = 20 };
+            this.conta.Titular = cliente;
+            this.conta.Titular.Nome = cliente.Nome;
+            this.conta.Numero = 1;
+            this.conta.TipoConta = 2;
+            
+            textoTitular.Text = conta.Titular.Nome;
+            textN.Text = Convert.ToString(conta.Numero);
+            textSaldo.Text = Convert.ToString("R$ " + conta.Saldo);
 
             this.MostrarConta();
 
@@ -105,4 +107,3 @@ namespace CaixaEletronico
     }
 }
 
- 

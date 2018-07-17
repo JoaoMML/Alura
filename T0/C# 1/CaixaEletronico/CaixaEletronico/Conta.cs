@@ -8,38 +8,46 @@ namespace CaixaEletronico
 {
     class Conta
     {
-        public int numero { get; set; }
-        public double saldo { get; set; }
-        public Cliente titular { get; set; }
-        public int agencia { get; set; }
+        public int Numero { get; set; }
+        public double Saldo { get; protected set; }
+        public Cliente Titular { get; set; }
+        public int Agencia { get; set; }
         public Cliente cliente { get; set; }
+        public int TipoConta { get; set; }
 
-        public void Deposita(double valorASerDepositado)
+        public virtual void Deposita(double valorASerDepositado)
         {
             if (valorASerDepositado > 0)
             {
-                this.saldo += valorASerDepositado;
+                if (TipoConta == 1)
+                {
+                    this.Saldo += valorASerDepositado;
+                }
+                else if (TipoConta == 2)
+                {
+                    this.Saldo += valorASerDepositado + 0.10;
+                }
             }
         }
 
         public bool Saca(double valorASerSacado)
         {
-            if (valorASerSacado > this.saldo || valorASerSacado < 0)
+            if (valorASerSacado > this.Saldo || valorASerSacado < 0)
             {
                 return false;
             }
             else
             {
-                if (this.titular.EhMaiorDeIdade())
+                if (this.Titular.EhMaiorDeIdade())
                 {
-                    this.saldo -= valorASerSacado;
+                    this.Saldo -= valorASerSacado;
                     return true;
                 }
                 else
                 {
                     if (valorASerSacado <= 200.0)
                     {
-                        this.saldo -= valorASerSacado;
+                        this.Saldo -= valorASerSacado;
                         return true;
                     }
                     else
