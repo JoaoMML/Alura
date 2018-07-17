@@ -40,10 +40,26 @@ namespace CaixaEletronico
         private void Form1_Load(object sender, EventArgs e)
         {
             Conta conta = new Conta();
-            Cliente cliente = new Cliente();
+            Cliente cliente = new Cliente("Victor");
             conta.titular = cliente;
-            conta.titular.nome = "Guilherme";
+            conta.titular.nome = cliente.nome;
+            conta.Deposita(250.0);
+            conta.numero = 1;
+
             textoTitular.Text = conta.titular.nome;
+            textN.Text = Convert.ToString(conta.numero);
+            textSaldo.Text = Convert.ToString("R$ "+conta.saldo);
+
+
+        }
+
+        private void textoTitular_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
 
         }
     }

@@ -9,7 +9,7 @@ namespace CaixaEletronico
     class Conta
     {
         public int numero { get; set; }
-        public double saldo { get; private set; }
+        public double saldo { get; set; }
         public Cliente titular { get; set; }
         public int agencia { get; set; }
         public Cliente cliente { get; set; }
