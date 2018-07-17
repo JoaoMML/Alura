@@ -30,7 +30,7 @@ namespace CaixaEletronico
             }
             else
             {
-                if (this.cliente.EhMaiorDeIdade())
+                if (this.titular.EhMaiorDeIdade())
                 {
                     this.saldo -= valorASerSacado;
                     return true;
