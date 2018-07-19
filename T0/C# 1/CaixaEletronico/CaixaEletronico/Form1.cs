@@ -13,6 +13,7 @@ namespace CaixaEletronico
     public partial class Form1 : Form
     {
         private Conta conta;
+        Conta[] contas;
 
         private void MostrarConta()
         {
@@ -24,43 +25,35 @@ namespace CaixaEletronico
         {
             InitializeComponent();
         }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Conta conta = new Conta();
-            Cliente cliente = new Cliente("Professor Danton") { Rg = "13456789-5", Cpf = "465879609", Idade = 30, Endereco = " Rua Benner Sistemas 2018" };
-            //conta.saldo = 10000.00; 
-            float vl = 1000;
-            bool sacou = conta.Saca(vl);
-            if (sacou)
-            {
-                MessageBox.Show(" Saque de  R$" + vl + " realizado com sucesso");
-            }
-
-
-            else
-            {
-                MessageBox.Show("Não foi possível sacar");
-            }
-
-
-            //  MessageBox.Show(" -> Cliente : " + cliente.nome + "\n -> RG:   " + cliente.rg + "\n -> CPF : " + cliente.cpf + "\n -> End: " + cliente.endereco + "\n -> Saldo atual : " + conta.saldo);
-        }
-
         private void Form1_Load(object sender, EventArgs e)
         {
-            this.conta = new Conta();
-            Cliente cliente = new Cliente("Victor") { Idade = 20 };
-            this.conta.Titular = cliente;
-            this.conta.Titular.Nome = cliente.Nome;
-            this.conta.Numero = 1;
-            this.conta.TipoConta = 2;
-            
-            textoTitular.Text = conta.Titular.Nome;
-            textN.Text = Convert.ToString(conta.Numero);
-            textSaldo.Text = Convert.ToString("R$ " + conta.Saldo);
+            contas = new Conta[3];
 
-            this.MostrarConta();
+            Cliente c1 = new Cliente();
+            contas[0] = new Conta();
+            contas[0].Titular = c1;
+            contas[0].Titular.Nome = "João Marcos";
+            contas[0].Numero = 1;
+            contas[0].Saldo = 10000; 
+
+            Cliente c2 = new Cliente();
+
+            contas[1] = new Conta();
+            contas[1].Titular = c2;
+            contas[1].Titular.Nome = "Victor";
+            contas[1].Numero = 2;
+            contas[1].Saldo = 2500;
+
+            Cliente c3 = new Cliente();
+            contas[2] = new Conta();
+            contas[2].Titular = c3;
+            contas[2].Titular.Nome = "Henrique";
+            contas[2].Numero = 3;
+            contas[2].Saldo = 8000;
+            foreach (Conta conta in contas)
+            {
+                comboContas.Items.Add(conta.Titular.Nome);
+            }
 
         }
 
@@ -102,6 +95,19 @@ namespace CaixaEletronico
 
                 this.MostrarConta();
             }
+
+        }
+
+        private void comboContas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int indiceSelecionado = comboContas.SelectedIndex;
+            Conta contaSelecionada = contas[indiceSelecionado];
+
+            textoTitular.Text = contaSelecionada.Titular.Nome;
+            textN.Text = Convert.ToString(contaSelecionada.Numero);
+            textSaldo.Text = Convert.ToString("R$ " + contaSelecionada.Saldo);
+
+
 
         }
     }
