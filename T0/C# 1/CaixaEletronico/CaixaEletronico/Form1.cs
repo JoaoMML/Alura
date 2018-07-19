@@ -12,14 +12,13 @@ namespace CaixaEletronico
 {
     public partial class Form1 : Form
     {
-        private Conta conta;
         Conta[] contas;
 
-        private void MostrarConta()
+        private void MostrarConta(Conta conta)
         {
-            textN.Text = Convert.ToString(this.conta.Numero);
-            textSaldo.Text = Convert.ToString("R$" + this.conta.Saldo);
-            textoTitular.Text = this.conta.Titular.Nome;
+            textoTitular.Text = conta.Titular.Nome;
+            textSaldo.Text = Convert.ToString("R$ " + conta.Saldo);
+            textN.Text = Convert.ToString(conta.Numero);
         }
         public Form1()
         {
@@ -34,7 +33,8 @@ namespace CaixaEletronico
             contas[0].Titular = c1;
             contas[0].Titular.Nome = "João Marcos";
             contas[0].Numero = 1;
-            contas[0].Saldo = 10000; 
+            contas[0].Saldo = 10000;
+            contas[0].Titular.Idade = 18;
 
             Cliente c2 = new Cliente();
 
@@ -43,6 +43,7 @@ namespace CaixaEletronico
             contas[1].Titular.Nome = "Victor";
             contas[1].Numero = 2;
             contas[1].Saldo = 2500;
+            contas[1].Titular.Idade = 18;
 
             Cliente c3 = new Cliente();
             contas[2] = new Conta();
@@ -50,6 +51,7 @@ namespace CaixaEletronico
             contas[2].Titular.Nome = "Henrique";
             contas[2].Numero = 3;
             contas[2].Saldo = 8000;
+            contas[2].Titular.Idade = 18;
             foreach (Conta conta in contas)
             {
                 comboContas.Items.Add(conta.Titular.Nome);
@@ -81,9 +83,11 @@ namespace CaixaEletronico
         {
             string textoDoValorDoDeposito = textoValor.Text;
             double valorDeposito = Convert.ToDouble(textoDoValorDoDeposito);
-            this.conta.Deposita(valorDeposito);
+            int indiceSelecionado = comboContas.SelectedIndex;
+            Conta contaSelecionada = this.contas[indiceSelecionado];
+            contaSelecionada.Deposita(valorDeposito);
 
-            this.MostrarConta();
+            this.MostrarConta(contaSelecionada);
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -91,9 +95,11 @@ namespace CaixaEletronico
             {
                 string textoDoValorDoSaque = textoValor.Text;
                 double valorSaque = Convert.ToDouble(textoDoValorDoSaque);
-                this.conta.Saca(valorSaque);
+                int indiceSelecionado = comboContas.SelectedIndex;
+                Conta contaSelecionada = this.contas[indiceSelecionado];
+                contaSelecionada.Saca(valorSaque);
 
-                this.MostrarConta();
+                this.MostrarConta(contaSelecionada);
             }
 
         }
@@ -105,11 +111,9 @@ namespace CaixaEletronico
 
             textoTitular.Text = contaSelecionada.Titular.Nome;
             textN.Text = Convert.ToString(contaSelecionada.Numero);
-            textSaldo.Text = Convert.ToString("R$ " + contaSelecionada.Saldo);
-
-
-
+            textSaldo.Text = Convert.ToString("R$ "+contaSelecionada.Saldo);
         }
+
     }
 }
 
