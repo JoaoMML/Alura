@@ -156,17 +156,18 @@ namespace CaixaEletronico
             int indiceDaContaDestino = comboTransferencia.SelectedIndex;
 
             Conta contaDestino = this.contas[indiceDaContaDestino];
-
+            try
+            { 
             string textoValorTrans = textoValor.Text;
             double ValorT = Convert.ToDouble(textoValorTrans);
-            try
-            {
+            
+            
                 contaSelecionada.Transfere(contaDestino, ValorT);
                 MessageBox.Show("Transferencia realizada com sucesso!!");
             }
-            catch (ArgumentException)
+            catch (SaldoInsuficienteException)
             {
-                MessageBox.Show("por favor informe um valor válido");
+                MessageBox.Show("Saldo insuficiente.");
             }
             this.MostrarConta(contaSelecionada);
         }
