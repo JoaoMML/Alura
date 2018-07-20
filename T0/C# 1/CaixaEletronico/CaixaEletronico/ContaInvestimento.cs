@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CaixaEletronico
 {
-    class ContaPoupanca : Conta , Tributavel
+    class ContaInvestimento : Conta , Tributavel
     {
         public override void Deposita(double valorASerDepositado)
         {
@@ -51,7 +51,7 @@ namespace CaixaEletronico
         }
         public double CalculaTributo()
         {
-            return this.Saldo * 0.02;
+            return this.Saldo * 0.03;
         }
     }
 }
