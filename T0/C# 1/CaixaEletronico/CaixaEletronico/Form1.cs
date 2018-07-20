@@ -92,8 +92,17 @@ namespace CaixaEletronico
             string textoDoValorDoDeposito = textoValor.Text;
             double valorDeposito = Convert.ToDouble(textoDoValorDoDeposito);
             Conta contaSelecionada = this.BuscaContaSelecionada();
-            contaSelecionada.Deposita(valorDeposito);
+            try
+            {
+                contaSelecionada.Deposita(valorDeposito);
+                MessageBox.Show("Deposito de R$ " + valorDeposito + " realizado com sucesso !!");
+            }
+            catch (ArgumentException)
+            {
+                MessageBox.Show("Por Favor informe um valor válido");
+            }
             this.MostrarConta(contaSelecionada);
+
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -102,7 +111,24 @@ namespace CaixaEletronico
                 string textoDoValorDoSaque = textoValor.Text;
                 double valorSaque = Convert.ToDouble(textoDoValorDoSaque);
                 Conta contaSelecionada = this.BuscaContaSelecionada();
-                contaSelecionada.Saca(valorSaque);
+
+                try
+                {
+                    contaSelecionada.Saca(valorSaque);
+                    MessageBox.Show("Saque de R$ " + valorSaque + " realizado com sucesso !!");
+                }
+                catch (ArgumentException)
+                {
+                    MessageBox.Show("Valores negativos são invalidos. ");
+                }
+                catch (SaldoInsuficienteException)
+                {
+                    MessageBox.Show("Saldo Insuficiente. ");
+                }
+                catch (LimiteMenorIdadeException)
+                {
+                    MessageBox.Show("O seu limite de saque é de R$200,00");
+                }
                 this.MostrarConta(contaSelecionada);
             }
 
@@ -133,9 +159,15 @@ namespace CaixaEletronico
 
             string textoValorTrans = textoValor.Text;
             double ValorT = Convert.ToDouble(textoValorTrans);
-
-            contaSelecionada.Transfere(contaDestino, ValorT);
-
+            try
+            {
+                contaSelecionada.Transfere(contaDestino, ValorT);
+                MessageBox.Show("Transferencia realizada com sucesso!!");
+            }
+            catch (ArgumentException)
+            {
+                MessageBox.Show("por favor informe um valor válido");
+            }
             this.MostrarConta(contaSelecionada);
         }
     }

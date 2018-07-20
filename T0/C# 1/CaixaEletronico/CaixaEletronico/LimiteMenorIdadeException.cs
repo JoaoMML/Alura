@@ -6,11 +6,7 @@ using System.Threading.Tasks;
 
 namespace CaixaEletronico
 {
-    class SeguroDeVida : Tributavel
+    class LimiteMenorIdadeException :  Exception
     {
-        public double CalculaTributo()
-        {
-            return 42.0;
-        }
     }
 }

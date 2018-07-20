@@ -13,35 +13,40 @@ namespace CaixaEletronico
             if (valorASerDepositado > 0)
                 this.Saldo += valorASerDepositado;
         }
-        public override bool Saca(double valorASerSacado)
+
+        public override void Saca(double valorASerSacado)
         {
-            if (valorASerSacado > this.Saldo || valorASerSacado < 0)
+            if (valorASerSacado < 0)
             {
-                return false;
+                throw new ArgumentException();
+            }
+            if (valorASerSacado > this.Saldo)
+            {
+                throw new SaldoInsuficienteException();
             }
             else
             {
+                if (this.Titular.EhMaiorDeIdade())
                 {
-                    if (this.Titular.EhMaiorDeIdade())
+                    this.Saldo -= valorASerSacado;
+                }
+                else
+                {
+                    if (valorASerSacado <= 200.0)
                     {
                         this.Saldo -= valorASerSacado;
-                        return true;
                     }
                     else
                     {
-                        if (valorASerSacado <= 200.0)
-                        {
-                            this.Saldo -= valorASerSacado;
-                            return true;
-                        }
-                        else
-                        {
-                            return false;
-                        }
+                        throw new LimiteMenorIdadeException();
                     }
                 }
             }
         }
+
+
+
+
         public override void Transfere(Conta destino, double valor)
         {
             this.Saca(valor);
@@ -49,5 +54,3 @@ namespace CaixaEletronico
         }
     }
 }
-
-

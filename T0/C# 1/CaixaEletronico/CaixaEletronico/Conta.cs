@@ -17,7 +17,7 @@ namespace CaixaEletronico
 
         public abstract void Deposita(double valorASerDepositado);
 
-        public abstract bool Saca(double valorASerSacado);
+        public abstract void Saca(double valorASerSacado);
 
         public abstract void Transfere(Conta destino, double valor);
     }
