@@ -35,6 +35,7 @@ namespace CaixaEletronico
             contas[0].Numero = 1;
             contas[0].Saldo = 10000;
             contas[0].Titular.Idade = 18;
+            contas[0].TipoConta = 1;
 
             Cliente c2 = new Cliente();
 
@@ -44,6 +45,7 @@ namespace CaixaEletronico
             contas[1].Numero = 2;
             contas[1].Saldo = 2500;
             contas[1].Titular.Idade = 18;
+            contas[0].TipoConta = 1;
 
             Cliente c3 = new Cliente();
             contas[2] = new Conta();
@@ -52,6 +54,7 @@ namespace CaixaEletronico
             contas[2].Numero = 3;
             contas[2].Saldo = 8000;
             contas[2].Titular.Idade = 18;
+            contas[0].TipoConta = 1;
             foreach (Conta conta in contas)
             {
                 comboContas.Items.Add(conta.Titular.Nome);
@@ -84,9 +87,9 @@ namespace CaixaEletronico
             string textoDoValorDoDeposito = textoValor.Text;
             double valorDeposito = Convert.ToDouble(textoDoValorDoDeposito);
             int indiceSelecionado = comboContas.SelectedIndex;
+
             Conta contaSelecionada = this.contas[indiceSelecionado];
             contaSelecionada.Deposita(valorDeposito);
-
             this.MostrarConta(contaSelecionada);
         }
 
@@ -111,7 +114,7 @@ namespace CaixaEletronico
 
             textoTitular.Text = contaSelecionada.Titular.Nome;
             textN.Text = Convert.ToString(contaSelecionada.Numero);
-            textSaldo.Text = Convert.ToString("R$ "+contaSelecionada.Saldo);
+            textSaldo.Text = Convert.ToString("R$ " + contaSelecionada.Saldo);
         }
 
     }
