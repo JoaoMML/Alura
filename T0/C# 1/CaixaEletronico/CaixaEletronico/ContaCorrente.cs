@@ -6,14 +6,13 @@ using System.Threading.Tasks;
 
 namespace CaixaEletronico
 {
-    class ContaPoupanca : Conta
+    class ContaCorrente : Conta
     {
         public override void Deposita(double valorASerDepositado)
         {
             if (valorASerDepositado > 0)
                 this.Saldo += valorASerDepositado;
         }
-
         public override bool Saca(double valorASerSacado)
         {
             if (valorASerSacado > this.Saldo || valorASerSacado < 0)
@@ -43,7 +42,6 @@ namespace CaixaEletronico
                 }
             }
         }
-
         public override void Transfere(Conta destino, double valor)
         {
             this.Saca(valor);
@@ -51,3 +49,5 @@ namespace CaixaEletronico
         }
     }
 }
+
+

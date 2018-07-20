@@ -34,7 +34,7 @@ namespace CaixaEletronico
             contas = new Conta[3];
 
             Cliente c1 = new Cliente();
-            contas[0] = new Conta();
+            contas[0] = new ContaPoupanca();
             contas[0].Titular = c1;
             contas[0].Titular.Nome = "João Marcos";
             contas[0].Numero = 1;
@@ -43,7 +43,7 @@ namespace CaixaEletronico
             contas[0].Deposita(10000);
 
             Cliente c2 = new Cliente();
-            contas[1] = new Conta();
+            contas[1] = new ContaPoupanca();
             contas[1].Titular = c2;
             contas[1].Titular.Nome = "Victor";
             contas[1].Numero = 2;
@@ -52,11 +52,11 @@ namespace CaixaEletronico
             contas[1].Deposita(2500);
 
             Cliente c3 = new Cliente();
-            contas[2] = new Conta();
+            contas[2] = new ContaPoupanca();
             contas[2].Titular = c3;
             contas[2].Titular.Nome = "Henrique";
             contas[2].Numero = 3;
-            contas[2].Titular.Idade = 18;
+            contas[2].Titular.Idade = 17;
             contas[2].TipoConta = 1;
             contas[2].Deposita(8000);
 
@@ -140,4 +140,3 @@ namespace CaixaEletronico
         }
     }
 }
-

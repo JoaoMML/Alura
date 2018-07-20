@@ -10,7 +10,7 @@ namespace CaixaEletronico
     {
         public double Total { get; private set; }
 
-        public void Adiciona(Conta conta)
+        public void Soma(Conta conta)
         {
             this.Total += conta.Saldo;
         }
