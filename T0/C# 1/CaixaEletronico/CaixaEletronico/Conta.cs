@@ -9,7 +9,7 @@ namespace CaixaEletronico
     class Conta
     {
         public int Numero { get; set; }
-        public double Saldo { get; set; }
+        public double Saldo { get;protected set; }
         public Cliente Titular { get; set; }
         public int Agencia { get; set; }
         public Cliente cliente { get; set; }
@@ -57,7 +57,7 @@ namespace CaixaEletronico
                 }
             }
         }
-        public void Transfere(double valor, Conta destino)
+        public void Transfere(Conta destino, double valor)
         {
             this.Saca(valor);
             destino.Deposita(valor);
