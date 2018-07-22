@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace CaixaEletronico
 {
-    abstract class Conta
+    public abstract class Conta
     {
         public int Numero { get; set; }
         public double Saldo { get; protected set; }
-        public Cliente Titular { get; set; }
+        public Cliente Titular { get; set; }      
         public int Agencia { get; set; }
-        public Cliente cliente { get; set; }
+     
         public int TipoConta { get; set; }
 
         public abstract void Deposita(double valorASerDepositado);

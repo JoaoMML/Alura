@@ -13,22 +13,13 @@ namespace CaixaEletronico
     public partial class Form1 : Form
     {
         Conta[] contas;
-        private Conta BuscaContaSelecionada()
-        {
-            int indiceSelecionado = comboContas.SelectedIndex;
-            return this.contas[indiceSelecionado];
-        }
+        private int quantidadeDeContas;
 
-        private void MostrarConta(Conta conta)
-        {
-            textoTitular.Text = conta.Titular.Nome;
-            textSaldo.Text = Convert.ToString("R$ " + conta.Saldo);
-            textN.Text = Convert.ToString(conta.Numero);
-        }
         public Form1()
         {
             InitializeComponent();
         }
+
         private void Form1_Load(object sender, EventArgs e)
         {
             contas = new Conta[3];
@@ -65,26 +56,6 @@ namespace CaixaEletronico
                 comboContas.Items.Add(conta.Titular.Nome);
                 comboTransferencia.Items.Add(conta.Titular.Nome);
             }
-        }
-
-        private void textoTitular_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void button1_Click_1(object sender, EventArgs e)
@@ -134,6 +105,29 @@ namespace CaixaEletronico
 
         }
 
+        private void MostrarConta(Conta conta)
+        {
+            textoTitular.Text = conta.Titular.Nome;
+            textSaldo.Text = Convert.ToString("R$ " + conta.Saldo);
+            textN.Text = Convert.ToString(conta.Numero);
+        }
+
+        private Conta BuscaContaSelecionada()
+        {
+            int indiceSelecionado = comboContas.SelectedIndex;
+            return this.contas[indiceSelecionado];
+        }
+
+        private void textoTitular_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
         private void comboContas_SelectedIndexChanged(object sender, EventArgs e)
         {
             int indiceSelecionado = comboContas.SelectedIndex;
@@ -146,8 +140,11 @@ namespace CaixaEletronico
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            string titularSelecionado = comboContas.Text;
+            Conta contaSelecionada = this.BuscaContaSelecionada();
+            this.MostrarConta(contaSelecionada);
         }
+
 
         private void button3_Click(object sender, EventArgs e)
         {
@@ -157,19 +154,32 @@ namespace CaixaEletronico
 
             Conta contaDestino = this.contas[indiceDaContaDestino];
             try
-            { 
-            string textoValorTrans = textoValor.Text;
-            double ValorT = Convert.ToDouble(textoValorTrans);
-            
-            
+            {
+                string textoValorTrans = textoValor.Text;
+                double ValorT = Convert.ToDouble(textoValorTrans);
+
+
                 contaSelecionada.Transfere(contaDestino, ValorT);
                 MessageBox.Show("Transferencia realizada com sucesso!!");
             }
             catch (SaldoInsuficienteException)
             {
-                MessageBox.Show("Saldo insuficiente.");
+                MessageBox.Show("O limite é de 200,00 para menores de 18 anos.");
             }
             this.MostrarConta(contaSelecionada);
+        }
+
+       public void AdicionaConta(Conta conta)
+       {
+         this.contas[this.quantidadeDeContas] = conta;
+         this.quantidadeDeContas++;
+         comboContas.Items.Add(conta);
+       }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            CadastroDeContas cadastro = new CadastroDeContas(this);
+            cadastro.ShowDialog();
         }
     }
 }

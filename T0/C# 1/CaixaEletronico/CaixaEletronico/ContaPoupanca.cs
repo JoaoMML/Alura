@@ -38,7 +38,8 @@ namespace CaixaEletronico
                     }
                     else
                     {
-                       throw new LimiteMenorIdadeException();
+                        throw new SaldoInsuficienteException();
+                  
                     }
                 }
             }
