@@ -34,6 +34,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.comboTipo = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // titularConta
@@ -56,7 +58,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(154, 44);
             this.button1.TabIndex = 2;
-            this.button1.Text = "Criar nova conta!";
+            this.button1.Text = "Adicionar nova conta!";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -88,11 +90,30 @@
             this.label3.TabIndex = 5;
             this.label3.Text = "N° da conta:";
             // 
+            // comboTipo
+            // 
+            this.comboTipo.FormattingEnabled = true;
+            this.comboTipo.Location = new System.Drawing.Point(255, 288);
+            this.comboTipo.Name = "comboTipo";
+            this.comboTipo.Size = new System.Drawing.Size(295, 21);
+            this.comboTipo.TabIndex = 6;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(255, 269);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(76, 13);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "Tipo da conta:";
+            // 
             // CadastroDeContas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.comboTipo);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -101,6 +122,7 @@
             this.Controls.Add(this.titularConta);
             this.Name = "CadastroDeContas";
             this.Text = "CadastroDeContas";
+            this.Load += new System.EventHandler(this.CadastroDeContas_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -114,5 +136,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox comboTipo;
+        private System.Windows.Forms.Label label4;
     }
 }

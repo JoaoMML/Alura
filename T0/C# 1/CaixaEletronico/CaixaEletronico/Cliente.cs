@@ -6,14 +6,16 @@ using System.Threading.Tasks;
 
 namespace CaixaEletronico
 {
-   public class Cliente
+    public class Cliente
     {
-        public Cliente() {}
+
         public string Nome { get; set; }
         public string Rg { get; set; }
         public string Endereco { get; set; }
         public string Cpf { get; set; }
         public int Idade { get; set; }
+
+        public Cliente() { }
 
         public bool EhMaiorDeIdade()
         {
@@ -24,17 +26,6 @@ namespace CaixaEletronico
         {
             this.Nome = nome;
         }
-
-        public override bool Equals(object obj)
-        {
-            Cliente cliente = (Cliente)obj;
-            return this.Rg.Equals(cliente.Rg);
-        }
-
-        public override string ToString()
-        {
-            return "Cliente Nome: "+this.Nome+ " RG";
-        }
     }
-    
+
 }

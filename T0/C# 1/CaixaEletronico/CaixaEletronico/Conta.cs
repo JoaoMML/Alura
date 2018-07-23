@@ -10,10 +10,8 @@ namespace CaixaEletronico
     {
         public int Numero { get; set; }
         public double Saldo { get; protected set; }
-        public Cliente Titular { get; set; }      
+        public Cliente Titular { get; set; }
         public int Agencia { get; set; }
-     
-        public int TipoConta { get; set; }
 
         public abstract void Deposita(double valorASerDepositado);
 
@@ -22,3 +20,4 @@ namespace CaixaEletronico
         public abstract void Transfere(Conta destino, double valor);
     }
 }
+

@@ -22,39 +22,41 @@ namespace CaixaEletronico
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            contas = new Conta[3];
+            contas = new Conta[20];
 
-            Cliente c1 = new Cliente();
-            contas[0] = new ContaPoupanca();
-            contas[0].Titular = c1;
-            contas[0].Titular.Nome = "João Marcos";
-            contas[0].Numero = 1;
-            contas[0].Titular.Idade = 18;
-            contas[0].TipoConta = 1;
-            contas[0].Deposita(10000);
+            Conta contaJoao = new ContaCorrente();
+            contaJoao.Titular = new Cliente();
+            contaJoao.Titular.Nome = "João Marcos";
+            contaJoao.Titular.Idade = 18;
+            contaJoao.Numero = 1;
+            contas[0] = contaJoao;
+            contas[0].Deposita(10000.00);
 
-            Cliente c2 = new Cliente();
-            contas[1] = new ContaPoupanca();
-            contas[1].Titular = c2;
-            contas[1].Titular.Nome = "Victor";
-            contas[1].Numero = 2;
-            contas[1].Titular.Idade = 18;
-            contas[1].TipoConta = 1;
-            contas[1].Deposita(2500);
+            Conta contaVitor = new ContaCorrente();
+            contaVitor.Titular = new Cliente();
+            contaVitor.Titular.Nome = "Vitor";
+            contaVitor.Titular.Idade = 18;
+            contaVitor.Numero = 2;
+            contas[1] = contaVitor;
+            contas[1].Deposita(5000.00);
 
-            Cliente c3 = new Cliente();
-            contas[2] = new ContaPoupanca();
-            contas[2].Titular = c3;
-            contas[2].Titular.Nome = "Henrique";
-            contas[2].Numero = 3;
-            contas[2].Titular.Idade = 17;
-            contas[2].TipoConta = 1;
-            contas[2].Deposita(8000);
+            Conta contaHenrique = new ContaCorrente();
+            contaHenrique.Titular = new Cliente();
+            contaHenrique.Titular.Nome = "Henrique";
+            contaHenrique.Titular.Idade = 18;
+            contaHenrique.Numero = 3;
+            contas[2] = contaHenrique;
+            contas[2].Deposita(3500.00);
 
-            foreach (Conta conta in contas)
+            this.quantidadeDeContas = 3;
+
+            foreach (Conta conta in this.contas)
             {
-                comboContas.Items.Add(conta.Titular.Nome);
-                comboTransferencia.Items.Add(conta.Titular.Nome);
+                if (conta != null)
+                {
+                    comboContas.Items.Add(conta.Titular.Nome);
+                    comboTransferencia.Items.Add(conta.Titular.Nome);
+                }
             }
         }
 
@@ -169,17 +171,50 @@ namespace CaixaEletronico
             this.MostrarConta(contaSelecionada);
         }
 
-       public void AdicionaConta(Conta conta)
-       {
-         this.contas[this.quantidadeDeContas] = conta;
-         this.quantidadeDeContas++;
-         comboContas.Items.Add(conta);
-       }
-
         private void button4_Click(object sender, EventArgs e)
         {
             CadastroDeContas cadastro = new CadastroDeContas(this);
             cadastro.ShowDialog();
+        }
+
+        public void AdicionaConta(Conta c)
+        {
+            if (this.quantidadeDeContas == this.contas.Length)
+            {
+                Conta[] novo = new Conta[this.contas.Length * 2];
+                for (int i = 0; i < this.quantidadeDeContas; i++)
+                {
+                    novo[i] = this.contas[i];
+                }
+                this.contas = novo;
+            }
+            this.contas[this.quantidadeDeContas] = c;
+            this.quantidadeDeContas++;
+            comboContas.Items.Add(c);
+        }
+
+        public void RemoveConta(Conta c)
+        {
+            comboContas.Items.Remove(c);
+            int i;
+            for (i = 0; i < this.quantidadeDeContas; i++)
+            {
+                if (this.contas[i] == c)
+                {
+                    break;
+                }
+            }
+            while (i + 1 <= this.quantidadeDeContas)
+            {
+                this.contas[i] = this.contas[i + 1];
+                i++;
+            }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Conta conta = BuscaContaSelecionada();
+            this.RemoveConta(conta);
         }
     }
 }
