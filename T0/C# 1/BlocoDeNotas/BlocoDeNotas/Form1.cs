@@ -22,26 +22,25 @@ namespace BlocoDeNotas
         {
             if (File.Exists("entrada.txt"))
             {
-                Stream entrada = File.Open("entrada.txt", FileMode.Open);
-                StreamReader leitor = new StreamReader(entrada);
-                string linha = leitor.ReadLine();
-                while (linha != null)
+                using (Stream entrada = File.Open("entrada.txt", FileMode.Open))
+                using (StreamReader leitor = new StreamReader(entrada))
                 {
-                    texto.Text += linha;
-                    linha = leitor.ReadLine();
+                    string conteudo = leitor.ReadToEnd();
+                    texto.Text = conteudo;
                 }
-                leitor.Close();
-                entrada.Close();
             }
+
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Stream saida = File.Open("entrada.txt", FileMode.Create);
-            StreamWriter escritor = new StreamWriter(saida);
-            escritor.Write(texto.Text);
-            escritor.Close();
-            saida.Close();
+            using (Stream saida = File.Open("entrada.txt", FileMode.Create))
+            using (StreamWriter escritor = new StreamWriter(saida))
+            {
+                escritor.Write(texto.Text);
+                escritor.Close();
+                saida.Close();
+            }
         }
     }
 }
