@@ -56,5 +56,11 @@ namespace CaixaEletronico
         {
             return this.Saldo * 0.03;
         }
+
+
+        public override string ToString()
+        {
+            return "" + this.Titular;
+        }
     }
 }

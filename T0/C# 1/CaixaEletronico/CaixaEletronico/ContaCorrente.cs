@@ -52,5 +52,10 @@ namespace CaixaEletronico
             this.Saca(valor);
             destino.Deposita(valor);
         }
+
+        public override string ToString()
+        {
+            return  "" + this.Titular;
+        }
     }
 }
