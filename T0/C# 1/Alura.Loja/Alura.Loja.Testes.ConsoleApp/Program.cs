@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Alura.Loja.Testes.ConsoleApp
 {
-    class Program
+    class Program 
     {
         static void Main(string[] args)
         {
@@ -24,12 +24,12 @@ namespace Alura.Loja.Testes.ConsoleApp
             RecuperarProdutos();
 
             // atualizar produto
-            using (var repo = new LojaContext())
+            using (var repo = new ProdutoDAOEntity())
             {
-                Produto primeiro = repo.Produtos.First();
+                Produto primeiro = repo.Produtos().First();
                 primeiro.Nome = "Texto Editado";
-                repo.Produtos.Update(primeiro);
-                repo.SaveChanges();
+                repo.Atualizar(primeiro);
+                
             }
 
             RecuperarProdutos();
@@ -38,22 +38,22 @@ namespace Alura.Loja.Testes.ConsoleApp
 
         private static void RemoverProdutos()
         {
-            using (var repo = new LojaContext())
+            using (var repo = new ProdutoDAOEntity())
             {
-                IList<Produto> produtos = repo.Produtos.ToList();
+                IList<Produto> produtos = repo.Produtos();
                 foreach (var item in produtos)
                 {
-                    repo.Produtos.Remove(item);
+                    repo.Remover(item);
                 }
-                repo.SaveChanges();
+            
             }
         }
 
         private static void RecuperarProdutos()
         {
-            using (var repo = new LojaContext())
+            using (var repo = new ProdutoDAOEntity())
             {
-                IList<Produto> produtos = repo.Produtos.ToList();
+                IList<Produto> produtos = repo.Produtos();
                 Console.WriteLine("Foram encontrados {0} produto(s).", produtos.Count);
                 foreach (var item in produtos)
                 {
@@ -69,20 +69,11 @@ namespace Alura.Loja.Testes.ConsoleApp
             p1.Categoria = "Livros";
             p1.Preco = 19.89;
 
-            Produto p2 = new Produto();
-            p2.Nome = "Senhor dos Anéis 1";
-            p2.Categoria = "Livros";
-            p2.Preco = 19.89;
 
-            Produto p3 = new Produto();
-            p3.Nome = "O Monge e o Executivo";
-            p3.Categoria = "Livros";
-            p3.Preco = 19.89;
-
-            using (var contexto = new LojaContext())
+            using (var repo = new ProdutoDAOEntity())
             {
-                contexto.Produtos.AddRange(p1, p2, p3);
-                contexto.SaveChanges();
+                repo.Adicionar(p1);
+   
             }
         }
     }
