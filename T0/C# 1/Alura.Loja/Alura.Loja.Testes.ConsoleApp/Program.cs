@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace Alura.Loja.Testes.ConsoleApp
 {
-    class Program 
+    class Program
     {
         static void Main(string[] args)
         {
-            // GravarUsandoEntity();
-            //RecuperarProdutos();
+            GravarUsandoEntity();
+            RecuperarProdutos();
             // RemoverProdutos();
-            // RecuperarProdutos();
+            //RecuperarProdutos();
             //AtualizarProdutos();
         }
 
@@ -29,7 +29,7 @@ namespace Alura.Loja.Testes.ConsoleApp
                 Produto primeiro = repo.Produtos().First();
                 primeiro.Nome = "Texto Editado";
                 repo.Atualizar(primeiro);
-                
+
             }
 
             RecuperarProdutos();
@@ -45,7 +45,7 @@ namespace Alura.Loja.Testes.ConsoleApp
                 {
                     repo.Remover(item);
                 }
-            
+
             }
         }
 
@@ -67,13 +67,23 @@ namespace Alura.Loja.Testes.ConsoleApp
             Produto p1 = new Produto();
             p1.Nome = "Harry Potter e a Ordem da Fênix";
             p1.Categoria = "Livros";
-            p1.Preco = 19.89;
+            p1.PrecoUnitario = 19.89;
 
+            Produto p2 = new Produto();
+            p2.Nome = "Senhor dos Anéis 1";
+            p2.Categoria = "Livros";
+            p2.PrecoUnitario = 19.89;
+
+            Produto p3 = new Produto();
+            p3.Nome = "O Monge e o Executivo";
+            p3.Categoria = "Livros";
+            p3.PrecoUnitario = 19.89;
 
             using (var repo = new ProdutoDAOEntity())
             {
                 repo.Adicionar(p1);
-   
+                repo.Adicionar(p2);
+                repo.Adicionar(p3);
             }
         }
     }

@@ -8,5 +8,9 @@ namespace Alura.Loja.Testes.ConsoleApp
 {
     interface IProdutoDAO
     {
+        void Adicionar(Produto p);
+        void Remover(Produto p);
+        void Atualizar(Produto p);
+        IList<Produto> Produtos();
     }
 }
