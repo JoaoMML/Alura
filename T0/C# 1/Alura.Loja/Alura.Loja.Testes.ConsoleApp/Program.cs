@@ -24,9 +24,15 @@ namespace Alura.Loja.Testes.ConsoleApp
 
                 var produto = contexto
                      .Produtos
-                     .Include(p=> p.Compras)
                      .Where(p => p.Id == 1002)
                      .FirstOrDefault();
+
+                contexto.Entry(produto)
+                        .Collection(p => p.Compras)
+                        .Query()
+                        .Where(c => c.Preco > 10)
+                        .Load();
+
                 Console.WriteLine($"Mostrando as compras do produto {produto.Nome}");
 
                 foreach (var item in produto.Compras)
@@ -36,6 +42,7 @@ namespace Alura.Loja.Testes.ConsoleApp
             }
 
         }
+
 
         private static void ExibeProdutosDaPromocao()
         {
