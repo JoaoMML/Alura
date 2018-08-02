@@ -40,11 +40,24 @@ aside {
     background-color: #3C1D3D;
     color: #F2FFFC;
     text-align: center;
+    padding: 20px;
+}
+
+.navegacao-site {}
+
+.icones-sociais li {
+    display: inline-block;
 }
 
 footer {
-    background-color: mediumturquoise;
+    background-color:lightblue;
     color: #F2FFFC;
+}
+
+.rodape {
+    background-color: black;
+    color: #F2FFFC;
+    padding: 20px;
 }
 
 nav a {
@@ -60,10 +73,17 @@ anside a {
     color: inherit;
     font-family: "Open Sans Condensed", sans-serif;
 
+
 }
 
 ul a {
     text-decoration: none;
+
+}
+
+ul {
+    list-style-type: none;
+    text-align: center;
 }
 
 div {
@@ -72,19 +92,26 @@ div {
     margin-right: auto;
 }
 
-img {
-    border: 10px solid black;
-}
+img {}
 
 body {
     line-height: 1.5;
 }
+
 main div {
     padding: 30px 0;
 }
-strong{
+
+strong {
     font-weight: bold;
 }
-em{
+
+em {
     font-style: italic;
+}
+
+article {
+    padding-bottom: 30px;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 20px;
 }
