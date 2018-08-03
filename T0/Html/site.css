@@ -13,6 +13,7 @@ main h1 {
     padding: 25px;
     border-bottom: 10px solid black;
     margin: 0;
+    text-transform: uppercase;
 
 }
 
@@ -20,6 +21,8 @@ h1,
 h2 {
     font-size: 30px;
     font-family: "Open Sans Condensed", "Arial", sans-serif;
+    clear: both;
+
 }
 
 p {
@@ -36,6 +39,11 @@ blockquote {
     box-sizing: border-box;
 }
 
+cite {
+    font-style: italic;
+    float: right;
+}
+
 aside {
     background-color: #3C1D3D;
     color: #F2FFFC;
@@ -43,14 +51,21 @@ aside {
     padding: 20px;
 }
 
-.navegacao-site {}
+.fotoM,
+.navegacao-site {
+    box-sizing: border-box;
+    border-left: 10px solid black;
+    border-bottom: 10px solid black;
+
+}
+
 
 .icones-sociais li {
     display: inline-block;
 }
 
 footer {
-    background-color:lightblue;
+    background-color: coral;
     color: #F2FFFC;
 }
 
@@ -62,6 +77,7 @@ footer {
 
 nav a {
     color: #F2FFFC;
+    text-transform: none;
 }
 
 main a {
@@ -92,8 +108,6 @@ div {
     margin-right: auto;
 }
 
-img {}
-
 body {
     line-height: 1.5;
 }
@@ -114,4 +128,83 @@ article {
     padding-bottom: 30px;
     border-bottom: 1px solid #ccc;
     margin-bottom: 20px;
+}
+
+.leia-mais {
+    padding: 8px;
+    margin: 16px;
+    display: block;
+    font-size: 24px;
+    text-align: center;
+    background-color: #E6E7E8;
+}
+
+.icones-sociais a {
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    text-indent: -99999px;
+}
+
+.github {
+
+    background-image: url(github.png);
+}
+
+.twitter {
+
+    background-image: url(twitter.png);
+}
+
+.linkedin {
+
+    background-image: url(linkedin.png);
+}
+
+.fiat {
+    float: right;
+}
+
+.petrobras {
+
+    float: left;
+}
+
+aside,
+img {
+    float: right;
+    width: 15%;
+}
+
+aside {
+    clear: right;
+    box-sizing: border-box;
+    position: relative;
+    top: 300px;
+}
+
+main {
+    float: left;
+    width: 85%;
+    padding-bottom: 80px;
+}
+
+footer {
+    clear: both;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+img {
+    width: 300px;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+
+navegacao-site {
+    width: 15%;
+    position: relative;
+    top: 310px;
 }
