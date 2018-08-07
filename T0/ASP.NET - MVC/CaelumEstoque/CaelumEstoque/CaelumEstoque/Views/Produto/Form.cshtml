@@ -13,27 +13,33 @@
 <body>
     <div> 
         <form action="/Produto/Adiciona" method="post">
+            @Html.ValidationMessage("produto.InformaticaComPrecoInvalido")
+            <hr />
             <label for="nome">Nome:</label>
-            <input for="id" name="produto.Nome" />
-
+            <input id="nome" name="produto.Nome" value="@ViewBag.Produto.Nome" />
+            @Html.ValidationMessage("produto.Nome")
+            <hr />
             <label for="preco">Preco:</label>
-            <input for="preco" name="produto.Preco" />
-
+            <input id="preco" name="produto.Preco" value="@ViewBag.Produto.Preco" />
+            @Html.ValidationMessage("produto.Preco")
+            <hr />
             <label for="quantidade">Quantidade:</label>
-            <input for="quantidade" name="produto.Quantidade" />
-
+            <input id="quantidade" name="produto.Quantidade" value="@ViewBag.Produto.Quantidade" />
+            <hr />
             <label for="descricao">Descricao:</label>
-            <input for="descricao" name="produto.Descricao" />
-
+            <input id="descricao" name="produto.Descricao" value="@ViewBag.Produto.Descricao" />
+            <hr />
             <label for="categoria">Categoria:</label>
-            <select id="categoria" name="produto.CategoriaId" />
-            @foreach (var categorias in ViewBag.Categorias)
-            {
-                <option value="@categorias.Id">@categorias.Nome</option>
-            }
+            <select id="categoria" name="produto.CategoriaId">
+                @foreach (var categoria in ViewBag.Categorias)
+                {
+                    <option value="@categoria.Id" selected="@categoria.Id.Equals(ViewBag.Produto.CategoriaId)">
+                        @categoria.Nome
+                    </option>
+                }
             </select>
-
-            <input type="submit" value="Cadastrar" />
+            <hr />
+            <input type="submit" />
         </form>
     </div>
 </body>
