@@ -1,20 +1,7 @@
 ﻿
 @model IList<CaelumEstoque.Models.Produto>
 
-@{
-    Layout = null;
-}
-
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
-</head>
-<body>
-    <div>
-        <table>
+        <table class="table table-houver">
             <thead>
                 <tr>
                     <th>Id</th>
@@ -27,12 +14,9 @@
                 {
                     <tr>
                         <td>@produto.Id</td>
-                        <td>@Html.ActionLink(produto.Nome, "Visualiza", new { id = produto.Id })</td>
+                        <td>@Html.RouteLink(produto.Nome, "VisualizaProduto", new { id = produto.Id })
                         <td>@produto.Quantidade</td>
                     </tr>
                 }
             </tbody>
-        </table>
-    </div>
-</body>
-</html>
+        </table> 
