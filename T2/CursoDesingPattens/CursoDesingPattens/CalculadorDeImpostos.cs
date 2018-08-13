@@ -10,8 +10,8 @@ namespace CursoDesingPattens
     {
         public void RealizaCalculo(Orcamento orcamento, Imposto imposto)
         {
-            double icms = imposto.Calcula(orcamento);
-            Console.WriteLine(icms);
+            double resultado = imposto.Calcula(orcamento);
+            Console.WriteLine(resultado);
         }
  
     }
