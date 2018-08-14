@@ -45,6 +45,7 @@
     <Compile Include="Aula 2\CalculadorDeDescontos.cs" />
     <Compile Include="Aula 2\DescontoPorCincoItens.cs" />
     <Compile Include="Aula 2\DescontoPorMaisDeQuinhentosReais.cs" />
+    <Compile Include="Aula 2\DescontoPorVendaCasada.cs" />
     <Compile Include="Aula 2\IDesconto.cs" />
     <Compile Include="Aula 2\Item.cs" />
     <Compile Include="Orcamento.cs" />
