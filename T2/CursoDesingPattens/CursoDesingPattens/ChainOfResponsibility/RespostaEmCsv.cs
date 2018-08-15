@@ -14,15 +14,25 @@ namespace CursoDesingPattens.ChainOfResponsibility
             this.OutraResposta = outraResposta;
         }
 
+        public RespostaEmCsv()
+        {
+            this.OutraResposta = null; // nao recebi a proxima!
+        }
+
         public void Responde (Requisicao req , Conta conta)
         {
             if(req.Formato == Formato.CSV)
             {
                 Console.WriteLine(conta.Titular + ";" + conta.Saldo);
             }
-            else
+            else if (OutraResposta != null)
             {
                 OutraResposta.Responde(req, conta);
+            }
+            else
+            {
+                throw new Exception("Formato de resposta não encontrado");
+
             }
         }
     }
