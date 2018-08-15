@@ -65,11 +65,14 @@
     <Compile Include="Strategy\Conta.cs" />
     <Compile Include="Strategy\ICCC.cs" />
     <Compile Include="Strategy\ICMS.cs" />
+    <Compile Include="Strategy\ICPP.cs" />
+    <Compile Include="Strategy\IKCV.cs" />
     <Compile Include="Strategy\Imposto.cs" />
     <Compile Include="Strategy\Investimentos.cs" />
     <Compile Include="Strategy\ISS.cs" />
     <Compile Include="Strategy\Moderado.cs" />
     <Compile Include="Strategy\RealizadorDeInvestimentos.cs" />
+    <Compile Include="Strategy\TemplateDeImpostoCondicional.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

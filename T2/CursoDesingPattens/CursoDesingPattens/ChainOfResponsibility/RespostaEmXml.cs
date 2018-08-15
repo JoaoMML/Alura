@@ -14,15 +14,24 @@ namespace CursoDesingPattens.ChainOfResponsibility
             this.OutraResposta = outraResposta;
         }
 
+        public RespostaEmXml()
+        {
+            this.OutraResposta = null; // nao recebi a proxima!
+        }
+
         public void Responde (Requisicao req, Conta conta)
         {
             if(req.Formato == Formato.XML)
             { 
                 Console.WriteLine("<conta><titular>" + conta.Titular + "</titular><saldo>" + conta.Saldo + "</saldo></conta>");
             }
-            else
+            else if (OutraResposta != null)
             {
                 OutraResposta.Responde(req,conta);
+            }
+            else
+            {
+                throw new Exception("Formato de resposta não encontrado");
             }
         }
     }

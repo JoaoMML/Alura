@@ -32,7 +32,6 @@ namespace CursoDesingPattens.ChainOfResponsibility
             else
             {
                 throw new Exception("Formato de resposta não encontrado");
-
             }
         }
     }
