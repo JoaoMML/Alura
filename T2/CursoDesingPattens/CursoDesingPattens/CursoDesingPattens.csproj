@@ -48,6 +48,13 @@
     <Compile Include="Aula 2\DescontoPorVendaCasada.cs" />
     <Compile Include="Aula 2\IDesconto.cs" />
     <Compile Include="Aula 2\Item.cs" />
+    <Compile Include="ChainOfResponsibility\Conta.cs" />
+    <Compile Include="ChainOfResponsibility\enum.cs" />
+    <Compile Include="ChainOfResponsibility\IResposta.cs" />
+    <Compile Include="ChainOfResponsibility\Requisicao.cs" />
+    <Compile Include="ChainOfResponsibility\RespostaEmCsv.cs" />
+    <Compile Include="ChainOfResponsibility\RespostaEmPorcento.cs" />
+    <Compile Include="ChainOfResponsibility\RespostaEmXml.cs" />
     <Compile Include="Orcamento.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
