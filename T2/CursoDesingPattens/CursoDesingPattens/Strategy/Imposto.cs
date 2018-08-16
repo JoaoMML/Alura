@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace CursoDesingPattens
 {
-    public interface Imposto
+    public abstract class Imposto
     {
-     double Calcula(Orcamento orcamento);
+        public Imposto OutroImposto { get; set; }
+        public abstract double  Calcula(Orcamento orcamento);
     }
 }

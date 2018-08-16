@@ -14,12 +14,14 @@ namespace CursoDesingPattens.Strategy
             {
                 return MaximaTaxacao(orcamento);
             }
-            return MinimaTaxacao(orcamento);
+            else
+            {
+                return MinimaTaxacao(orcamento);
+            }
         }
 
-        public abstract bool DeveUsarMaximaTaxacao(Orcamento orcamento);
-        public abstract double MaximaTaxacao(Orcamento orcamento);
-        public abstract double MinimaTaxacao(Orcamento orcamento);
-
+        protected abstract bool DeveUsarMaximaTaxacao(Orcamento orcamento);
+        protected abstract double MaximaTaxacao(Orcamento orcamento);
+        protected abstract double MinimaTaxacao(Orcamento orcamento);
     }
 }

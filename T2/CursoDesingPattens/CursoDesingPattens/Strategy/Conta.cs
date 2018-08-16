@@ -9,6 +9,10 @@ namespace CursoDesingPattens
     public class Conta
     {
         public double Saldo { get; private set; }
+        public string Nome { get; internal set; }
+        public string Numero { get; internal set; }
+        public string Agencia { get; internal set; }
+
         public void Deposita(double valor)
         {
             this.Saldo += valor;
