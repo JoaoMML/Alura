@@ -15,6 +15,9 @@ namespace CursoDesingPattens
             Orcamento orcamento = new Orcamento(500);
 
             double valor = iss.Calcula(orcamento);
+
+            Console.WriteLine(valor);
+            Console.ReadKey();
         }
     }
 }

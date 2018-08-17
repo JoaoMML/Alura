@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CursoDesingPattens.Strategy
 {
-    public class IKCV : TemplateDeImpostoCondicional
+    public  class IKCV : TemplateDeImpostoCondicional
     {
         protected override bool DeveUsarMaximaTaxacao(Orcamento orcamento)
         {
