@@ -60,6 +60,11 @@
     <Compile Include="Decorator\FiltroMenorQue100Reais.cs" />
     <Compile Include="Decorator\FiltroMesmoMes.cs" />
     <Compile Include="Decorator\ImpostoMuitoAlto.cs" />
+    <Compile Include="EstadosAtuais\Aprovado.cs" />
+    <Compile Include="EstadosAtuais\Finalizado.cs" />
+    <Compile Include="EstadosAtuais\EmAprovacao.cs" />
+    <Compile Include="EstadosAtuais\IEstados.cs" />
+    <Compile Include="EstadosAtuais\Reprovado.cs" />
     <Compile Include="Orcamento.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

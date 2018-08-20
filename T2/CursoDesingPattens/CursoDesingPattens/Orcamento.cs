@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CursoDesingPattens.EstadosAtuais;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,8 @@ namespace CursoDesingPattens
 {
     public class Orcamento
     {
-        public double Valor { get; private set; }
+        public IEstados EstadoAtual { get; set; }
+        public double Valor { get;set; }
         public IList<Item> Itens { get; private set; }
 
         public Orcamento(double valor)
@@ -17,9 +19,28 @@ namespace CursoDesingPattens
             this.Itens = new List<Item>();
         }
 
+        internal void AplicaDescontoExtra()
+        {
+            EstadoAtual.AplicaDescontoExtra(this);
+        }
+
         public void AdicionaItem( Item item)
         {
             Itens.Add(item);
+        }
+
+        public void Aprova()
+        {
+            EstadoAtual.Aprova(this);
+        }
+
+       public void Reprova()
+        {
+            EstadoAtual.Reprova(this);
+        }
+        void Finaliza()
+        {
+            EstadoAtual.Finaliza(this);
         }
 
     }

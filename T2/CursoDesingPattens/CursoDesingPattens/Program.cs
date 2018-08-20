@@ -10,13 +10,10 @@ namespace CursoDesingPattens
     {
         static void Main(string[] args)
         {
-            Imposto iss = new ImpostoMuitoAlto(new ICMS());
-            
-            Orcamento orcamento = new Orcamento(500);
+            Orcamento reforma = new Orcamento(500);
+            reforma.Aprova();
 
-            double valor = iss.Calcula(orcamento);
 
-            Console.WriteLine(valor);
             Console.ReadKey();
         }
     }
