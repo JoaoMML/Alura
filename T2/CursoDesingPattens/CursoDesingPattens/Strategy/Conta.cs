@@ -12,6 +12,8 @@ namespace CursoDesingPattens
         public string Nome { get; internal set; }
         public string Numero { get; internal set; }
         public string Agencia { get; internal set; }
+        public DateTime DataAbertura { get; internal set; }
+        
 
         public void Deposita(double valor)
         {
