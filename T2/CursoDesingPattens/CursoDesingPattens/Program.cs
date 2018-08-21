@@ -1,3 +1,4 @@
+using CursoDesingPattens.Observer;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,6 +19,10 @@ namespace CursoDesingPattens
                 .ComItem(new ItemDaNota("item 2", 200.0))
                 .NaDataAtual()
                 .ComObservacoes("uma obs qualquer");
+
+            criador.AdicionaAcao(new EnviadorDeEmail());
+            criador.AdicionaAcao(new EnviadorDeSms());
+            criador.AdicionaAcao(new NotaFiscalDao());
 
             NotaFiscal nf = criador.Controi();
             Console.WriteLine(nf.ValorBruto);
