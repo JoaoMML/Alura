@@ -6,13 +6,21 @@ using System.Threading.Tasks;
 
 namespace CursoDesingPattens.EstadosAtuais
 {
-    class Aprovado : IEstados
+   public class Aprovado : IEstados
     {
+        private bool descontoAplicado = false;
         public void AplicaDescontoExtra(Orcamento orcamento)
         {
-            orcamento.Valor = orcamento.Valor - (orcamento.Valor * 0.02);
+            if (!descontoAplicado)
+            {
+                orcamento.Valor -= orcamento.Valor * 0.02;
+                descontoAplicado = true;
+            }
+            else
+            {
+                throw new Exception("Desconto já aplicado!");
+            }
         }
-
         public void Aprova(Orcamento orcamento)
         {
             throw new Exception(" O orçamento já está em estado 'APROVADO' ");

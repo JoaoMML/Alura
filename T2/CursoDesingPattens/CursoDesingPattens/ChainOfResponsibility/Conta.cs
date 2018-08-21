@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CursoDesingPattens.ChainOfResponsibility
 {
-    class Conta
+   public class Conta
     {
         public String Titular { get; private set; }
         public double Saldo { get; private set; }

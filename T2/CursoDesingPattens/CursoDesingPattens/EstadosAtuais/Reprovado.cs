@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CursoDesingPattens.EstadosAtuais
 {
-    class Reprovado : IEstados
+   public class Reprovado : IEstados
     {
         public void AplicaDescontoExtra(Orcamento orcamento)
         {

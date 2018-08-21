@@ -17,6 +17,7 @@ namespace CursoDesingPattens
         {
             this.Valor = valor;
             this.Itens = new List<Item>();
+            this.EstadoAtual = new EmAprovacao();
         }
 
         internal void AplicaDescontoExtra()
