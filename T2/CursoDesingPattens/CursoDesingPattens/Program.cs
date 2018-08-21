@@ -11,13 +11,13 @@ namespace CursoDesingPattens
         static void Main(string[] args)
         {
             CriadorDeNotaFiscal criador = new CriadorDeNotaFiscal();
-            criador.ParaEmpresa("Caelum ensino e Inovacao");
-            criador.ComCnpj("23.456.789/0001-12");
-            //...
-            criador.ComItem(new ItemDaNota("item 1",100.0 ));
-            criador.ComItem(new ItemDaNota("item 2", 200.0));
-            criador.NaDataAtual();
-            criador.ComObservacoes("uma obs qualquer");
+            criador
+                .ParaEmpresa("Caelum ensino e Inovacao")
+                .ComCnpj("23.456.789/0001-12")
+                .ComItem(new ItemDaNota("item 1",100.0 ))
+                .ComItem(new ItemDaNota("item 2", 200.0))
+                .NaDataAtual()
+                .ComObservacoes("uma obs qualquer");
 
             NotaFiscal nf = criador.Controi();
             Console.WriteLine(nf.ValorBruto);
