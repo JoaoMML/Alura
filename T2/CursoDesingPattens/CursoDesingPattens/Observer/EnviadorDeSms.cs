@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace CursoDesingPattens.Observer
 {
-    public class EnviadorDeSms
+    public class EnviadorDeSms : AcaoAposGerarNota
 
     {
-        public void EnviaPorSms(NotaFiscal nf)
+        public void Executa (NotaFiscal nf)
         {
             Console.WriteLine("Sms");
         }

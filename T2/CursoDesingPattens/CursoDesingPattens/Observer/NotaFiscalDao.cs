@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace CursoDesingPattens.Observer
 {
-   public class NotaFiscalDao
+   public class NotaFiscalDao : AcaoAposGerarNota
     {
-        public void SalvaNoBanco ( NotaFiscal nf)
+        public void Executa ( NotaFiscal nf)
         {
             Console.WriteLine("bd");
         }

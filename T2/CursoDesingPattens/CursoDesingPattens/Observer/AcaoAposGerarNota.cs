@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace CursoDesingPattens.Observer
 {
-    interface AcaoAposGerarNota
+    public interface AcaoAposGerarNota
     {
+        void Executa(NotaFiscal nf);
     }
 }

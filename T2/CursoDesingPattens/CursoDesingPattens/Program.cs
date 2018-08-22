@@ -11,7 +11,7 @@ namespace CursoDesingPattens
     {
         static void Main(string[] args)
         {
-            CriadorDeNotaFiscal criador = new CriadorDeNotaFiscal();
+            NotaFiscalBuilder criador = new NotaFiscalBuilder();
             criador
                 .ParaEmpresa("Caelum ensino e Inovacao")
                 .ComCnpj("23.456.789/0001-12")

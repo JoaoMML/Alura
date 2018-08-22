@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CursoDesingPattens
 {
-    public class CriadorDeNotaFiscal
+    public class NotaFiscalBuilder
     {
         public String RazaoSocial { get; private set; }
         public String Cnpj { get; private set; }
@@ -20,12 +20,12 @@ namespace CursoDesingPattens
 
         private IList<AcaoAposGerarNota> TodasAcoesASeremExecutadas = new List<AcaoAposGerarNota>();
 
-        public CriadorDeNotaFiscal ParaEmpresa(String razaoSocial)
+        public NotaFiscalBuilder ParaEmpresa(String razaoSocial)
         {
             this.RazaoSocial = razaoSocial;
             return this;
         }
-        public CriadorDeNotaFiscal ComObservacoes (String observacoes)
+        public NotaFiscalBuilder ComObservacoes (String observacoes)
         {
             this.Observacoes = observacoes;
             return this;
@@ -47,17 +47,17 @@ namespace CursoDesingPattens
             this.TodasAcoesASeremExecutadas.Add(novaAcao);
         }
 
-        public CriadorDeNotaFiscal NaDataAtual()
+        public NotaFiscalBuilder NaDataAtual()
         {
             this.Data = DateTime.Now;
             return this;
         }
-        public CriadorDeNotaFiscal ComCnpj(string cnpj)
+        public NotaFiscalBuilder ComCnpj(string cnpj)
         {
             this.Cnpj = cnpj;
             return this;
         }
-        public CriadorDeNotaFiscal ComItem(ItemDaNota item)
+        public NotaFiscalBuilder ComItem(ItemDaNota item)
         {
             todosItens.Add(item);
             valorTotal += item.Valor;

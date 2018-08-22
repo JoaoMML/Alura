@@ -55,7 +55,7 @@
     <Compile Include="ChainOfResponsibility\RespostaEmCsv.cs" />
     <Compile Include="ChainOfResponsibility\RespostaEmPorcento.cs" />
     <Compile Include="ChainOfResponsibility\RespostaEmXml.cs" />
-    <Compile Include="CriadorDeNotaFiscal.cs" />
+    <Compile Include="Builder\NotaFiscalBuilder.cs" />
     <Compile Include="Decorator\Filtro.cs" />
     <Compile Include="Decorator\FiltroMaiorQue500Mil.cs" />
     <Compile Include="Decorator\FiltroMenorQue100Reais.cs" />
@@ -66,8 +66,12 @@
     <Compile Include="EstadosAtuais\EmAprovacao.cs" />
     <Compile Include="EstadosAtuais\IEstados.cs" />
     <Compile Include="EstadosAtuais\Reprovado.cs" />
-    <Compile Include="ItemDaNota.cs" />
-    <Compile Include="NotaFiscal.cs" />
+    <Compile Include="Builder\ItemDaNota.cs" />
+    <Compile Include="Builder\NotaFiscal.cs" />
+    <Compile Include="Observer\AcaoAposGerarNota.cs" />
+    <Compile Include="Observer\EnviadorDeEmail.cs" />
+    <Compile Include="Observer\EnviadorDeSms.cs" />
+    <Compile Include="Observer\NotaFiscalDao.cs" />
     <Compile Include="Orcamento.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
