@@ -1,3 +1,6 @@
+using DesingPatterns2.Cap1;
+using DesingPatterns2.Cap2;
+using DesingPatterns2.Cap3;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -12,7 +15,22 @@ namespace DesingPatterns2
     {
         static void Main(string[] args)
         {
-            IDbConnection conexao = new SqlConnection(); 
+            Historico historico = new Historico();
+            Contrato c = new Contrato(DateTime.Now, "Victor", TipoDoContrato.Novo);
+
+            historico.Adiciona(c.SalvaEstado());
+
+            c.Avanca();
+            historico.Adiciona(c.SalvaEstado());
+
+            c.Avanca();
+            historico.Adiciona(c.SalvaEstado());
+
+            Console.WriteLine(historico.Pega(2).Contrato.Tipo);
+
+            Console.ReadKey();
+            
         }
+
     }
 }

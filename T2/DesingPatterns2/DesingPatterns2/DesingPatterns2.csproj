@@ -42,11 +42,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cap1\ConnectionFactory.cs" />
+    <Compile Include="Cap2\Do.cs" />
+    <Compile Include="Cap2\Fa.cs" />
+    <Compile Include="Cap2\INota.cs" />
+    <Compile Include="Cap2\La.cs" />
+    <Compile Include="Cap2\Mi.cs" />
+    <Compile Include="Cap2\NotasMusicais.cs" />
+    <Compile Include="Cap2\Piano.cs" />
+    <Compile Include="Cap2\Re.cs" />
+    <Compile Include="Cap2\Si.cs" />
+    <Compile Include="Cap2\Sol.cs" />
+    <Compile Include="Cap3\Contrato.cs" />
+    <Compile Include="Cap3\Estado.cs" />
+    <Compile Include="Cap3\Historico.cs" />
+    <Compile Include="Cap3\TipoDoContrato.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Testes.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
