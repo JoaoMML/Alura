@@ -52,5 +52,43 @@ namespace DesingPatterns2
         //    Piano piano = new Piano();
         //    piano.Toca(musica);
         //------------------------------------------------------------------------------
+
+        //Cap3 file
+        //Historico historico = new Historico();
+        //Contrato c = new Contrato(DateTime.Now, "Victor", TipoDoContrato.Novo);
+
+        //historico.Adiciona(c.SalvaEstado());
+
+        //    c.Avanca();
+        //    historico.Adiciona(c.SalvaEstado());
+
+        //    c.Avanca();
+        //    historico.Adiciona(c.SalvaEstado());
+
+        //    Console.WriteLine(historico.Pega(2).Contrato.Tipo);
+
+        //    Console.ReadKey();
+        //------------------------------------------------------------------------------
+
+        //------------------------------------------------------------------------------
+        //Cap5 file
+        //IExpressao esquerda = new Subtracao(new Numero(1), new Numero(10));
+        //IExpressao direita = new Soma(new Numero(20), new Numero(10));
+        //IExpressao soma = new Soma(esquerda, direita);
+
+        //int resultado = soma.Avalia();
+        //Console.WriteLine(resultado);
+
+        //    //Expression soma = Expression.Add(Expression.Constant(10), Expression.Constant(10));
+        //    //Func<int> funcao = Expression.Lambda<Func<int>>(soma).Compile();
+        //    //Console.WriteLine(funcao());
+
+        //    ImpressoraVisitor impressora = new ImpressoraVisitor();
+        //soma.Aceita(impressora);
+        //------------------------------------------------------------------------------
+        //Cap6 file
+
+
+        //------------------------------------------------------------------------------
     }
 }
