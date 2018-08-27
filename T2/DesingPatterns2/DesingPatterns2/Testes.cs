@@ -108,8 +108,17 @@ namespace DesingPatterns2
 
         //------------------------------------------------------------------------------
         //Cap8 file
+        //Cliente cliente = new Cliente();
 
+        //cliente.Nome = "João";
+        //    cliente.Endereco = "Rua cinco";
+        //    cliente.DataDeNascimento = DateTime.Now;
+
+        //    String xml = new GeradorDeXml().GeraXml(cliente);
+
+        //Console.WriteLine(xml);
         //------------------------------------------------------------------------------
+        // Cap9 file
 
         //------------------------------------------------------------------------------
     }

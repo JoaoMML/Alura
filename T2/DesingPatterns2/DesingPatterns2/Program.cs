@@ -6,6 +6,7 @@ using DesingPatterns2.Cap5;
 using DesingPatterns2.Cap6;
 using DesingPatterns2.Cap7;
 using DesingPatterns2.Cap8;
+using DesingPatterns2.Cap9;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -23,15 +24,11 @@ namespace DesingPatterns2
     {
         static void Main(string[] args)
         {
-            Cliente cliente = new Cliente();
-
-            cliente.Nome = "João";
-            cliente.Endereco = "Rua cinco";
-            cliente.DataDeNascimento = DateTime.Now;
-
-            String xml = new GeradorDeXml().GeraXml(cliente);
-
-            Console.WriteLine(xml);
+            String cpf = "1234";/// pega cpf
+            EmpresaFacade facade = new EmpresaFacadeSingleton().Instancia;
+            Cliente cliente = facade.BuscaCliente(cpf);
+            facade.CriaFatura(cliente, 5000);
+            facade.GeraCobranca(tipo.Boleto, fatura);
         }
 
     }
