@@ -5,14 +5,17 @@ using DesingPatterns2.Cap4;
 using DesingPatterns2.Cap5;
 using DesingPatterns2.Cap6;
 using DesingPatterns2.Cap7;
+using DesingPatterns2.Cap8;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace DesingPatterns2
 {
@@ -20,16 +23,15 @@ namespace DesingPatterns2
     {
         static void Main(string[] args)
         {
-            FilaDeTrabalho fila = new FilaDeTrabalho();
-            Pedido pedido1 = new Pedido("Mauricio", 100.0);
-            Pedido pedido2 = new Pedido("Pedro", 200.0);
-            fila.Adiciona(new PagaPedido(pedido1));
-            fila.Adiciona(new PagaPedido(pedido2));
+            Cliente cliente = new Cliente();
 
-            fila.Adiciona(new FinalizaPedido(pedido1));
-            fila.Adiciona(new FinalizaPedido(pedido2));
+            cliente.Nome = "João";
+            cliente.Endereco = "Rua cinco";
+            cliente.DataDeNascimento = DateTime.Now;
 
-            fila.Processa();
+            String xml = new GeradorDeXml().GeraXml(cliente);
+
+            Console.WriteLine(xml);
         }
 
     }
