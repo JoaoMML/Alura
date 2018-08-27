@@ -6,11 +6,8 @@ using System.Threading.Tasks;
 
 namespace DesingPatterns2.Cap6
 {
-    interface IMensagem
+    interface IEnviador
     {
-        IEnviador Enviador { get; set; }
-
-        void Envia();
-        string Formata();
+      void Envia(IMensagem mensagem);
     }
 }

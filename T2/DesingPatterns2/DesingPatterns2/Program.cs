@@ -19,7 +19,9 @@ namespace DesingPatterns2
     {
         static void Main(string[] args)
         {
-            IMensagem mensagem = new MensagemPorSMS("victor");
+            IMensagem mensagem = new MensagemCliente("victor");
+            IEnviador enviador = new EnviaPorSMS();
+            mensagem.Enviador = enviador;
             mensagem.Envia();
         }
 
