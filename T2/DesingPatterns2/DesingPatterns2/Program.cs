@@ -4,6 +4,7 @@ using DesingPatterns2.Cap3;
 using DesingPatterns2.Cap4;
 using DesingPatterns2.Cap5;
 using DesingPatterns2.Cap6;
+using DesingPatterns2.Cap7;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -19,10 +20,16 @@ namespace DesingPatterns2
     {
         static void Main(string[] args)
         {
-            IMensagem mensagem = new MensagemCliente("victor");
-            IEnviador enviador = new EnviaPorSMS();
-            mensagem.Enviador = enviador;
-            mensagem.Envia();
+            FilaDeTrabalho fila = new FilaDeTrabalho();
+            Pedido pedido1 = new Pedido("Mauricio", 100.0);
+            Pedido pedido2 = new Pedido("Pedro", 200.0);
+            fila.Adiciona(new PagaPedido(pedido1));
+            fila.Adiciona(new PagaPedido(pedido2));
+
+            fila.Adiciona(new FinalizaPedido(pedido1));
+            fila.Adiciona(new FinalizaPedido(pedido2));
+
+            fila.Processa();
         }
 
     }

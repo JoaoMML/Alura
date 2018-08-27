@@ -87,7 +87,17 @@ namespace DesingPatterns2
         //soma.Aceita(impressora);
         //------------------------------------------------------------------------------
         //Cap6 file
+        //IMensagem mensagem = new MensagemCliente("victor");
+        //IEnviador enviador = new EnviaPorSMS();
+        //mensagem.Enviador = enviador;
+        //    mensagem.Envia();
 
+
+        //------------------------------------------------------------------------------
+        //Cap7 file
+
+
+        //------------------------------------------------------------------------------
 
         //------------------------------------------------------------------------------
     }
