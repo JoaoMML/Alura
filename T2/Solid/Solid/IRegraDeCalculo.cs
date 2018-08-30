@@ -6,11 +6,9 @@ using System.Threading.Tasks;
 
 namespace Solid
 {
-    public class Tester : Cargo
+   public interface IRegraDeCalculo
     {
-        public Tester(IRegraDeCalculo regra) : base()
-        {
-                
-        }
+        double Calcula(Funcionario funcionario);
+        double Calcula();
     }
 }
