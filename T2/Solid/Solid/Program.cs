@@ -1,4 +1,6 @@
 ﻿using Solid.Cap_2;
+using Solid.Cap_3;
+using Solid.Cap_4;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,15 +13,17 @@ namespace Solid
     {
         static void Main(string[] args)
         {
-            EnviadorDeEmail enviadorEmail = new EnviadorDeEmail();
-            NotaFiscalDao nfDao = new NotaFiscalDao();
-            IList<IAcaoAposGerarNota> acoes = new List<IAcaoAposGerarNota>();
-            acoes.Add(new EnviadorDeEmail());
-            acoes.Add(new NotaFiscalDao());
-            acoes.Add(new SAP());
-            GeradorDeNotaFiscal gerador = new GeradorDeNotaFiscal(acoes);
-            Fatura fatura = new Fatura(200, "Joao Marcos");
-            gerador.Gera(fatura);
+            IList<Boleto> boletos = new List<Boleto>();
+            boletos.Add(new Boleto(200));
+            boletos.Add(new Boleto(400));
+
+            Fatura fatura = new Fatura("João", 900);
+
+            ProcessadorDeBoletos pdb = new ProcessadorDeBoletos();
+
+            pdb.Processa(boletos,fatura);
+
+            Console.WriteLine(fatura.Pago);
             Console.ReadKey();
         }
     }

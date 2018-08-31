@@ -54,9 +54,22 @@
     <Compile Include="Cap 2\NotaFiscal.cs" />
     <Compile Include="Cap 2\NotaFiscalDao.cs" />
     <Compile Include="Cap 2\SAP.cs" />
+    <Compile Include="Cap 3\CalculadorDePrecos.cs" />
+    <Compile Include="Cap 3\Compra.cs" />
+    <Compile Include="Cap 3\Frete.cs" />
+    <Compile Include="Cap 3\ITabelaDePreco.cs" />
+    <Compile Include="Cap 3\IServicoDeEntrega.cs" />
+    <Compile Include="Cap 3\TabelaDePrecoPadrao.cs" />
+    <Compile Include="Cap 3\Transportadora.cs" />
+    <Compile Include="Cap 4\Boleto.cs" />
+    <Compile Include="Cap 4\Fatura.cs" />
+    <Compile Include="Cap 4\MeioDePagamento.cs" />
+    <Compile Include="Cap 4\Pagamento.cs" />
+    <Compile Include="Cap 4\ProcessadorDeBoletos.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Cap 1\Tester.cs" />
+    <Compile Include="Testes program.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
