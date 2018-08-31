@@ -9,8 +9,11 @@ namespace Solid
 {
     class Program
     {
+        private static double resultado;
+
         static void Main(string[] args)
         {
+<<<<<<< HEAD
             EnviadorDeEmail enviadorEmail = new EnviadorDeEmail();
             NotaFiscalDao nfDao = new NotaFiscalDao();
             IList<IAcaoAposGerarNota> acoes = new List<IAcaoAposGerarNota>();
@@ -21,6 +24,14 @@ namespace Solid
             Fatura fatura = new Fatura(200, "Joao Marcos");
             gerador.Gera(fatura);
             Console.ReadKey();
+=======
+            CalculadoraDeSalario cs = new CalculadoraDeSalario();
+            Funcionario funcionario = new Funcionario(new Desenvolvedor(new DezOuVintePorcento()), 2000.0);
+
+            resultado = cs.Calcula(funcionario);
+
+            Console.WriteLine("O salário de um desenvlvedor que ganha 2000 bruto é de", resultado);
+>>>>>>> 2d17cf0a612b72f5c35e96ce069e8edd1f9bda6a
         }
     }
 }
