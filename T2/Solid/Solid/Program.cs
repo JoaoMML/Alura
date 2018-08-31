@@ -13,18 +13,6 @@ namespace Solid
     {
         static void Main(string[] args)
         {
-            IList<Boleto> boletos = new List<Boleto>();
-            boletos.Add(new Boleto(200));
-            boletos.Add(new Boleto(400));
-
-            Fatura fatura = new Fatura("João", 900);
-
-            ProcessadorDeBoletos pdb = new ProcessadorDeBoletos();
-
-            pdb.Processa(boletos,fatura);
-
-            Console.WriteLine(fatura.Pago);
-            Console.ReadKey();
         }
     }
 }
