@@ -50,5 +50,35 @@ namespace Caelum.Leilao
             // comparando a saida com o esperado
             Assert.AreEqual(400, leiloeiro.Media, 0.0001);
         }
+
+        [Test]
+        public void DeveIdentificarPalindromoEFiltrarCaracteresInvalidos()
+        {
+            Palindromo p = new Palindromo();
+
+            bool resultado = p.EhPalindromo(
+                "--O-lobo-ama-o-bolo--");
+            Assert.IsTrue(resultado);
+        }
+
+        [Test]
+        public void DeveIdentificarPalindromo()
+        {
+            Palindromo p = new Palindromo();
+
+            bool resultado = p.EhPalindromo(
+                "Roma é amor");
+            Assert.IsTrue(resultado);
+        }
+
+        [Test]
+        public void DeveIdentificarSeNaoEhPalindromo()
+        {
+            Palindromo p = new Palindromo();
+
+            bool resultado = p.EhPalindromo(
+                "Oi meu nome é joao!");
+            Assert.IsFalse(resultado);
+        }
     }
 }
