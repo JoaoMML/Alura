@@ -8,7 +8,6 @@ namespace Caelum.Leilao
     {
         [Test] // Adc
         public void Main() // Deixar publico e sem nada dentro do Main()
-
         {   // Cenário - 1° parte do teste
             Usuario joao = new Usuario("Joao");
             Usuario jose = new Usuario("José");
@@ -16,9 +15,9 @@ namespace Caelum.Leilao
 
             Leilao leilao = new Leilao("Playstation 3 Novo");
 
-            leilao.Propoe(new Lance(maria, 250.0));
             leilao.Propoe(new Lance(joao, 300.0));
             leilao.Propoe(new Lance(jose, 400.0));
+            leilao.Propoe(new Lance(maria, 250.0));
 
             // Ação - 2° parte
             Avaliador leiloeiro = new Avaliador();
