@@ -4,10 +4,10 @@ using System;
 namespace Caelum.Leilao
 {
     [TestFixture]  // Adiciona 
-    public class TesteDoAvaliador
+    public class AvaliadorTest
     {
         [Test] // Adc
-        public void Main() // Deixar publico e sem nada dentro do Main()
+        public void TesteMaiorMenor() // Deixar publico e sem nada dentro do Main()
         {   // Cenário - 1° parte do teste
             Usuario joao = new Usuario("Joao");
             Usuario jose = new Usuario("José");
@@ -28,6 +28,27 @@ namespace Caelum.Leilao
             double menorEsperado = 250;
             Assert.AreEqual(maiorEsperado, leiloeiro.MaiorLance); // imprime 400.0
             Assert.AreEqual(menorEsperado, leiloeiro.MenorLance); // imprime 200.0
+        }
+        [Test]
+        public void TestDeMedia()
+        {
+            // cenario: 3 lances em ordem crescente
+            Usuario joao = new Usuario("Joao");
+            Usuario jose = new Usuario("José");
+            Usuario maria = new Usuario("Maria");
+
+            Leilao leilao = new Leilao("Playstation 3 Novo");
+
+            leilao.Propoe(new Lance(maria, 300.0));
+            leilao.Propoe(new Lance(joao, 400.0));
+            leilao.Propoe(new Lance(jose, 500.0));
+
+            // executando a acao
+            Avaliador leiloeiro = new Avaliador();
+            leiloeiro.Avalia(leilao);
+
+            // comparando a saida com o esperado
+            Assert.AreEqual(400, leiloeiro.Media, 0.0001);
         }
     }
 }

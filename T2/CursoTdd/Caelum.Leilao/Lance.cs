@@ -3,7 +3,6 @@ namespace Caelum.Leilao
 
     public class Lance
     {
-
         public Usuario Usuario { get; private set; }
         public double Valor { get; private set; }
 
@@ -12,8 +11,5 @@ namespace Caelum.Leilao
             this.Usuario = usuario;
             this.Valor = valor;
         }
-
-
-
     }
 }
