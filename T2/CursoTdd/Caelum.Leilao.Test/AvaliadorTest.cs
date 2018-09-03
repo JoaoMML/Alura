@@ -7,7 +7,7 @@ namespace Caelum.Leilao
     public class AvaliadorTest
     {
         [Test] // Adc
-        public void TesteMaiorMenor() // Deixar publico e sem nada dentro do Main()
+        public void TesteOrdemCrescente() // Deixar publico e sem nada dentro do Main()
         {   // Cenário - 1° parte do teste
             Usuario joao = new Usuario("Joao");
             Usuario jose = new Usuario("José");
@@ -51,6 +51,23 @@ namespace Caelum.Leilao
             Assert.AreEqual(400, leiloeiro.Media, 0.0001);
         }
 
+        [Test]
+        public void DeveEntenderLeilaoComApenasUmLance()
+        {
+            Usuario joao = new Usuario("Joao");
+            Leilao leilao = new Leilao("Playstation 3 Novo");
+
+            leilao.Propoe(new Lance(joao, 1000.0));
+
+            Avaliador leiloeiro = new Avaliador();
+            leiloeiro.Avalia(leilao);
+
+            Assert.AreEqual(1000, leiloeiro.MaiorLance, 0.0001);
+            Assert.AreEqual(1000, leiloeiro.MenorLance, 0.0001);
+        }
+
+
+        // Daqui pra baixo testes do desafio cap1
         [Test]
         public void DeveIdentificarPalindromoEFiltrarCaracteresInvalidos()
         {
