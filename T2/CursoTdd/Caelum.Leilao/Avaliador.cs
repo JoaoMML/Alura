@@ -34,7 +34,11 @@ namespace Caelum.Leilao
         private void pegaOsMaioresNo(Leilao leilao)
         {
             maiores = new List<Lance>(leilao.Lances.OrderByDescending(x => x.Valor));
-            maiores = maiores.GetRange(0, 3);
+            maiores = maiores.GetRange(0, maiores.Count > 3 ? 3: maiores.Count);
+        }
+        public List<Lance> TresMaiores
+        {
+            get { return this.maiores; }
         }
 
         public double MaiorLance { get { return maiorDeTodos; } }
