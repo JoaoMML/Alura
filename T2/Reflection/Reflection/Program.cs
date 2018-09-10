@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Reflection.Infra;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,6 +11,9 @@ namespace Reflection
     {
         static void Main(string[] args)
         {
+            var prefixos = new string[] { "http://localhost:5340/" };
+            var webApplication = new WebApplication(prefixos);
+            webApplication.Iniciar();
         }
     }
 }
