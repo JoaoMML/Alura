@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Reflection.Infra;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -6,7 +7,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Reflection.Infra
+namespace Reflection.Infraestrutura
 {
     public class WebApplication
     {
@@ -24,63 +25,50 @@ namespace Reflection.Infra
             while (true)
                 ManipularRequisicao();
         }
+
         private void ManipularRequisicao()
         {
+            var httpListener = new HttpListener();
+
+            foreach (var prefixo in _prefixos)
+                httpListener.Prefixes.Add(prefixo);
+
+            httpListener.Start();
+
+            var contexto = httpListener.GetContext();
+            var requisicao = contexto.Request;
+            var resposta = contexto.Response;
+
+            var path = requisicao.Url.AbsolutePath;
+
+            var assembly = Assembly.GetExecutingAssembly();
+
+            var nomeResource = Utilidades.ConverterPathParaNomeAssembly(path);
+
+            var resourceStream = assembly.GetManifestResourceStream(nomeResource);
+
+            if (resourceStream == null)
             {
-                var httpListener = new HttpListener();
-
-                foreach (var prefixo in _prefixos)
-
-                    httpListener.Prefixes.Add(prefixo);
-
-                httpListener.Start();
-
-                var contexto = httpListener.GetContext();
-                var requisicao = contexto.Request;
-                var resposta = contexto.Response;
-
-                var path = requisicao.Url.AbsolutePath;
-
-                if (path == "/Assets/css/styles.css")
-                {
-                    //Retornar o nosso documento style.css
-                    var assembly = Assembly.GetExecutingAssembly();
-                    var nomeResource = "ByteBank.Portal.Assets.css.styles.css";
-
-                    var resourceStream = assembly.GetManifestResourceStream(nomeResource);
-                    var bytesResource = new byte[resourceStream.Length];
-
-                    resourceStream.Read(bytesResource, 0, (int)resourceStream.Length);
-                    resposta.ContentType = "text/css; charset=utf-8";
-                    resposta.StatusCode = 200;
-                    resposta.ContentLength64 = resourceStream.Length;
-
-                    resposta.OutputStream.Write(bytesResource, 0, bytesResource.Length);
-
-                    resposta.OutputStream.Close();
-                }
-                else if (path == "/Assets/js/main.js")
-                {
-                    //Retornar o nosso documento main.js
-                    var assembly = Assembly.GetExecutingAssembly();
-                    var nomeResource = "Reflection.Infra.Assets.js.main.js";
-
-                    var resourceStream = assembly.GetManifestResourceStream(nomeResource);
-                    var bytesResource = new byte[resourceStream.Length];
-
-                    resourceStream.Read(bytesResource, 0, (int)resourceStream.Length);
-                    resposta.ContentType = "aplication/js; charset=utf-8";
-                    resposta.StatusCode = 200;
-                    resposta.ContentLength64 = resourceStream.Length;
-
-                    resposta.OutputStream.Write(bytesResource, 0, bytesResource.Length);
-
-                    resposta.OutputStream.Close();
-                }
-
-                httpListener.Stop();
+                resposta.StatusCode = 404;
+                resposta.OutputStream.Close();
             }
+            else
+            {
+
+                var bytesResource = new byte[resourceStream.Length];
+
+                resourceStream.Read(bytesResource, 0, (int)resourceStream.Length);
+
+                resposta.ContentType = Utilidades.ObterTipoDeConteudo(path);
+                resposta.StatusCode = 200;
+                resposta.ContentLength64 = resourceStream.Length;
+
+                resposta.OutputStream.Write(bytesResource, 0, bytesResource.Length);
+
+                resposta.OutputStream.Close();
+            }
+
+            httpListener.Stop();
         }
     }
 }
-

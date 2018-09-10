@@ -4,16 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{61122C47-82CF-4716-951B-9F3FA48E4379}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>Reflection</RootNamespace>
-    <AssemblyName>Reflection</AssemblyName>
+    <ProjectGuid>{1C24C7EE-C426-43A6-A3D8-231598428472}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Reflection.Service</RootNamespace>
+    <AssemblyName>Reflection.Service</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,7 +22,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -42,29 +40,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controller\CambioController.cs" />
-    <Compile Include="Infra\Utilidades.cs" />
-    <Compile Include="Infra\WebApplication.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="CambioTestService.cs" />
+    <Compile Include="ICambioService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Assets\css\styles.css" />
-    <EmbeddedResource Include="Assets\js\main.js" />
-    <EmbeddedResource Include="View\Cambio\MXN.html" />
-    <EmbeddedResource Include="View\Cambio\USD.html" />
-    <EmbeddedResource Include="View\Cartoes\Credito.html" />
-    <EmbeddedResource Include="View\Cartoes\Debito.html" />
-    <EmbeddedResource Include="View\Home\Index.html" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Reflection.Service\Reflection.Service.csproj">
-      <Project>{1c24c7ee-c426-43a6-a3d8-231598428472}</Project>
-      <Name>Reflection.Service</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
