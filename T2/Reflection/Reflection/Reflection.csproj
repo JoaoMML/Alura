@@ -43,6 +43,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\CambioController.cs" />
+    <Compile Include="Infra\Binding\ActionBinder.cs" />
+    <Compile Include="Infra\Binding\ArgumentoNomeValor.cs" />
     <Compile Include="Infra\ControllerBase.cs" />
     <Compile Include="Infra\ManipuladorRequisicaoArquivo.cs" />
     <Compile Include="Infra\ManipuladorRequisicaoController.cs" />
@@ -68,6 +70,9 @@
       <Project>{1c24c7ee-c426-43a6-a3d8-231598428472}</Project>
       <Name>Reflection.Service</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="View\Cambio\Calculo.html" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

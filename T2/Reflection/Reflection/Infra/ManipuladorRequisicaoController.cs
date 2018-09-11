@@ -5,11 +5,14 @@ using System.Net;
 using System.Text;
 using System.Reflection;
 using System.Threading.Tasks;
+using Reflection.Infra.Binding;
 
 namespace Reflection.Infra
 {
     public class ManipuladorRequisicaoController
     {
+        private readonly ActionBinder _actionBinder = new ActionBinder(); 
+
         public void Manipular (HttpListenerResponse resposta,string path)
         {
             var partes = path.Split(new char[] { '/' }, StringSplitOptions.RemoveEmptyEntries);
@@ -20,7 +23,9 @@ namespace Reflection.Infra
 
             var controllerWrapper = Activator.CreateInstance("Reflection",controllerNomeCompleto, new object[0]);
             var controller = controllerWrapper.Unwrap();
-            var methodInfo = controller.GetType().GetMethod(actionNome);
+
+            // var methodInfo = controller.GetType().GetMethod(actionNome);
+            var methodInfo = _actionBinder.ObterMethodInfo(controller, path);
 
            var resultadoAction = (string)methodInfo.Invoke(controller, new object[0]);
 
