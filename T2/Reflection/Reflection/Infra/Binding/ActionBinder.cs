@@ -9,7 +9,7 @@ namespace Reflection.Infra.Binding
 {
     public class ActionBinder
     {
-        public MethodInfo ObterMethodInfo(object controller, string path)
+        public MethodInfo ActionBindInfo(object controller, string path)
         {
 
             // /Cambio/Calculo?moedaOrigem=BRL&moedaDestino=USD&valor=10

@@ -58,7 +58,10 @@ namespace Reflection.Controller
 
         public string Calculo(string moedaDestino, decimal valor) =>
          Calculo("BRL", moedaDestino, valor);
-        
+
+        public string Calculo(string moedaDestino) =>
+            Calculo("BRL", moedaDestino, 1);
+
     }
 }
 
