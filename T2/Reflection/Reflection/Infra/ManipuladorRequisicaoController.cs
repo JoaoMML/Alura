@@ -25,9 +25,9 @@ namespace Reflection.Infra
             var controller = controllerWrapper.Unwrap();
 
             // var methodInfo = controller.GetType().GetMethod(actionNome);
-            var methodInfo = _actionBinder.ObterMethodInfo(controller, path);
+            var methodInfo = _actionBinder.ActionBindInfo(controller, path);
 
-           var resultadoAction = (string)methodInfo.Invoke(controller, new object[0]);
+           var resultadoAction = (string)methodInfo.Invoke(controller);
 
 
             var bufferArquivo = Encoding.UTF8.GetBytes(resultadoAction);

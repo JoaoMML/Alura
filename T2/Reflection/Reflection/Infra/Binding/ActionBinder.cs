@@ -9,7 +9,7 @@ namespace Reflection.Infra.Binding
 {
     public class ActionBinder
     {
-        public MethodInfo ActionBindInfo(object controller, string path)
+        public ActionBindInfo ActionBindInfo(object controller, string path)
         {
 
             // /Cambio/Calculo?moedaOrigem=BRL&moedaDestino=USD&valor=10
@@ -23,7 +23,7 @@ namespace Reflection.Infra.Binding
             {
                 var nomeAction = path.Split(new char[] { '/' }, StringSplitOptions.RemoveEmptyEntries)[1];
                 var methodInfo = controller.GetType().GetMethod(nomeAction);
-                return methodInfo;
+                return new ActionBindInfo(methodInfo, Enumerable.Empty<ArgumentoNomeValor>());
             }
             else
             {
@@ -36,7 +36,9 @@ namespace Reflection.Infra.Binding
                 var nomeArgumentos = tuplasNomeValor.Select(tupla => tupla.Nome).ToArray();
 
                 var methodInfo = ObterMethodInfoAPartirDeNomeEArgumentos(nomeAction, nomeArgumentos, controller);
-                return methodInfo;
+
+                return new ActionBindInfo(methodInfo,tuplasNomeValor);
+
 
             }
         }
